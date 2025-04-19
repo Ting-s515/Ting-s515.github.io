@@ -30,7 +30,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://ting-s515.github.io/images/redefine-og.webp">
 <meta property="article:published_time" content="2025-04-18T05:40:10.000Z">
-<meta property="article:modified_time" content="2025-04-19T02:59:58.958Z">
+<meta property="article:modified_time" content="2025-04-19T10:37:32.365Z">
 <meta property="article:author" content="Ting">
 <meta property="article:tag" content="clean code">
 <meta name="twitter:card" content="summary">
@@ -372,8 +372,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-04-19 10:59:58</span>
-            <span class="mobile">2025-04-19 10:59:58</span>
+            <span class="desktop">2025-04-19 18:37:32</span>
+            <span class="mobile">2025-04-19 18:37:32</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -425,8 +425,7 @@
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
 			<style>
     img{max-height:800px; max-width:750px;}    
-    a{color: blue;}
-    h5{ font-size: 24px !important; }
+    /* a{color: blue;} */
     .li_title{font-size: 18px !important; 
     color: #dc3545 !important;  
     /* Bootstrap 5 colors by ColorsWall */
@@ -435,16 +434,18 @@
     /* redefine_navbar_hover_color --primary-color: #a31f34; */
     .navbar-item a{color:black !important;}
     .navbar-item a:hover{color: #a31f34 !important;}
+
+    .key_point{font-size: 20px; }
 </style>
 <!-- ------------------------------------------------------------------------------------- -->
-<h3 id='uml_img'><a target="_blank" rel="noopener" href='https://pjchender.dev/golang/note-go-clean-architecture/'>Go Clean Architectur</a></h3>
+<h2 id='uml_img'><a target="_blank" rel="noopener" href='https://pjchender.dev/golang/note-go-clean-architecture/'>What is Clean Architectur</a></h2>
 <img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://i.imgur.com/F4obUyX.png"
                      
                 >
-<h5><span class="text-danger">Clean Architecture</span> 的核心觀念是讓系統中的商業邏輯是獨立的</h5>
+<h3 id='title_1'><span class="text-danger">Clean Architecture</span> 的核心觀念是讓系統中的商業邏輯是獨立的</h3>
 <ul>
     <li><strong class='li_title'>獨立於框架：</strong>把框架當成是工具，而非把系統塞到框架中。所以當抽換框架時也不會影嚮系統商業邏輯的運作。</li>
     <!-- ------------------------------------------------------------------------------------- -->
@@ -457,7 +458,7 @@
     <li><strong class='li_title'>獨立於任何其他代理：</strong>商業邏輯可以獨立於其他任何第三方服務。</li>
 </ul>
 <!-- ------------------------------------------------------------------------------------- -->
-<h5>這張圖主要定義幾個 Layer：</h5>
+<h3 id='title_2'>這張圖主要定義幾個 Layer：</h3>
 <ul>
     <li><strong class='text-danger li_title'>Entities：</strong>類似 Model 層，又稱 Domain。<strong>定義 model 的 struct、以及透過
 interface 來定義將被實作的方法。</strong>這些定義好的 entities 會在其他不同層中被使用。</li>
@@ -478,8 +479,10 @@ interface 來定義將被實作的方法。</strong>這些定義好的 entities 
                      data-src="https://i.imgur.com/y0G1qUn.jpeg"
                      
                 >
-<p>▲上圖中，Entities是架構中層級最高的一層，而最外圈屬於I/O層，是層級最低的。</p>
-<h5>Clean Architecture有四層</h5>
+<p><strong>▲上圖中，Entities是架構中層級最高的一層，而最外圈屬於I/O層，是層級最低的。</strong></p>
+<h4 id='title_3'>定義高層與低層</h4>
+<p>《Clean Architecture》書中關於分層有一個非常明確的定義：<strong>「離I/O（輸入、輸出）越遠的元件層級越高，離I/O越近的層級越低」。</strong></p>
+<h4 id='title_4'>Clean Architecture有四層</h4>
 <ul>
     <li><strong class='li_title'>Entities: </strong>最核心的Entities存放domain model object。</li>
     <li><strong class='li_title'>Use Cases: </strong>Use Cases存放商業/應用程式邏輯。扮演著controller的角色，呼叫Entities或是Repository物件提供應用程式對外的服務。</li>
@@ -489,7 +492,7 @@ interface 來定義將被實作的方法。</strong>這些定義好的 entities 
 </ul>
 <!-- ------------------------------------------------------------------------------------- -->
 <h3 id='principle_2'>相依性原則 (Dependency Rule)</h3>
-<p><h5 class='text-danger'>依賴方向必須由外往內、由低層往高層。</h5></p>.
+<p><strong class='text-danger key_point'>依賴方向必須由外往內、由低層往高層。</strong></p>
 <p>Entities層的物件只可以參考（依賴）同一層的其他物件，不可以參考其他層的物件。</p>
 <p>Use Cases層只可以往內參考Entities層以及自己這一層的物件，不可以往外參考其他層的物件</p>
 
@@ -500,7 +503,7 @@ interface 來定義將被實作的方法。</strong>這些定義好的 entities 
 
 <p>雖然SqlWorkflowRepository與MySQL都<strong>跨層</strong>直接參考Workflow，但<strong>相依性的方向還是由外向內</strong>，因此並沒有違反相依性原則。但是，這麼做違反了Clean Architecture的第三個原則：<strong>跨層原則。</strong></p>
 
-<h5>滿足相依性原則可以獲得兩大好處</h5>
+<h4 id='title_5'>滿足相依性原可以獲得兩大好處</h4>
 
 <ul>
     <li>因為高層的物件不再相依於框架等低層的物件，所以測試碼可以單獨測試，大幅簡化測試的工作。</li>
@@ -511,10 +514,11 @@ interface 來定義將被實作的方法。</strong>這些定義好的 entities 
 <p>▼請參考下圖，AddHostController呼叫AddHost Use Case，它再呼叫Entity層的Host物件，並獲得一個Host物件。接著AddHost Use Case直接把Host物件往外傳給AddHostController。</p>
 <img src='https://i.imgur.com/wsSVEEF.png'>
 
-<p>當Entities層的物件跨越離開Use Case層往外傳遞時（傳到UI或是DB或其他外部系統），不要直接把Entities層的物件傳出Use Case層，而是<strong>要在Use Cases層定義往外傳遞的介面與資料結構</strong></p>
+<p>當Entities層的物件離開Use Case層往外傳遞時（傳到UI或是DB或其他外部系統），不要直接把Entities層的物件傳出Use Case層，而是<strong class='key_point'>要在Use Cases層定義往外傳遞的介面與資料結構</strong></p>
 
 <p><strong class='text-danger'>也就是把 Entities 層的物件轉成 DTO 再往外傳遞。</strong></p>
-<p>如果直接把 Entities 層的物件往外傳，例如直接傳給 UI，很有可能因為 UI 端的需求，導致回頭影響 Entities 層的物件。<strong>為了做到分層負責與單一責任，所以物件跨層的時候要轉一次資料型態。</strong></p>
+
+<p>如果直接把 Entities 層的物件往外傳，例如直接傳給 UI，很有可能<strong>因為 UI 端的需求，導致回頭影響 Entities 層的物件</strong>。為了做到分層負責與單一責任，<strong>所以物件跨層的時候需要再轉一次資料型態。</strong></p>
 <!-- ------------------------------------------------------------------------------------- -->
 
 		</div>
@@ -605,7 +609,7 @@ interface 來定義將被實作的方法。</strong>這些定義好的 entities 
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">Clean Architecture</div>
-		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#uml_img"><span class="nav-text">Go Clean Architectur</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#architecture_principle"><span class="nav-text">Clean Architecture三原則</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#principle_1"><span class="nav-text">分層原則</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#principle_2"><span class="nav-text">相依性原則 (Dependency Rule)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#principle_3"><span class="nav-text">跨層原則</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#uml_img"><span class="nav-text">What is Clean Architectur</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#title_1"><span class="nav-text">Clean Architecture 的核心觀念是讓系統中的商業邏輯是獨立的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#title_2"><span class="nav-text">這張圖主要定義幾個 Layer：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#architecture_principle"><span class="nav-text">Clean Architecture三原則</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#principle_1"><span class="nav-text">分層原則</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#title_3"><span class="nav-text">定義高層與低層</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#title_4"><span class="nav-text">Clean Architecture有四層</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#principle_2"><span class="nav-text">相依性原則 (Dependency Rule)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#title_5"><span class="nav-text">滿足相依性原可以獲得兩大好處</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#principle_3"><span class="nav-text">跨層原則</span></a></li></ol></li></ol>
 
 	</div>
 </div>
