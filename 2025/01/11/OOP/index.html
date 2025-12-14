@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Ting">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://ting-s515.github.io/2025/01/11/oop/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="物件導向OOP">
+<meta property="og:url" content="https://ting-s515.github.io/2025/01/11/OOP/index.html">
+<meta property="og:site_name" content="Ting&#39;s Blog">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ting-s515.github.io/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-01-11T10:48:17.000Z">
+<meta property="article:modified_time" content="2025-04-18T05:44:13.369Z">
+<meta property="article:author" content="Ting">
+<meta property="article:tag" content="oop">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ting-s515.github.io/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/null" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/null">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/null">
+    <!--- Page Info-->
+    
+    <title>
+        
+            物件導向OOP | Ting&#39;s blog
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"ting-s515.github.io","root":"/","language":"en","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":false,"count":false,"min2read":false},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"simple","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":4,"number":false,"expand":true,"init_open":true},"copyright":{"enable":false,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"250px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":false,"site_uv":false,"post_pv":false},"single_page":true,"preloader":{"enable":false,"custom_message":null},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"I'm not anti-social; I'm just not user friendly.","subtitle":{"text":["世界就是一個巨大的草台班子"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Tags":{"path":"/tags","icon":"fa-solid fa-tags"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/1/7 12:00:00"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<head>
+	<!-- 只引入包含 Bootstrap 的工具類（Utility Classes），避免跟主題衝突 -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-utilities.min.css">
+	<style>
+		/* 整個文章容器 */
+		.article-content-container{padding:10px 20px !important;}
+		
+    	p{font-size:18px;}
+		strong{font-size:18px;}
+		/* 設定文章側邊目錄(toc) */
+		.nav-item{font-size: 15px !important;}
+		.toc-content-container{margin: 0 !important; padding: 0 !important;}
+		
+		/* 首頁調整文章區塊版面 */
+		.home-article-item{margin: 10px !important; padding: 0 !important;}
+	</style>
+</head>
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Ting&#39;s blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags"
+                                        >
+                                    <i class="fa-solid fa-tags fa-fw"></i>
+                                    TAGS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    ARCHIVES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags"
+                        >
+                            <span>
+                                TAGS
+                            </span>
+                            
+                                <i class="fa-solid fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                ARCHIVES
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/categories"
+                        >
+                            <span>Categories</span>
+                            <i class="fa-regular fa-folder fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">8</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">物件導向OOP</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/avatar.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Ting</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-01-11 18:48:17</span>
+        <span class="mobile">2025-01-11 18:48:17</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-04-18 13:44:13</span>
+            <span class="mobile">2025-04-18 13:44:13</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E6%95%B4%E7%90%86%E8%A8%98%E9%8C%84/">整理記錄</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/oop/">oop</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<style>
+    a{color:blue;}
+    /* 覆蓋設定navbar*/
+    /* redefine_navbar_hover_color --primary-color: #a31f34; */
+    .navbar-item a{color:black !important;}
+    .navbar-item a:hover{color: #a31f34 !important;}
+    p{letter-spacing:2px;}
+    th,td{font-size:16px;}
+</style>
+<p>把真實世界的事物抽象化為物件。以物件為主體，透過物件方法與其他物件進行互動</p>
+<p>物件導向只是一種『設計概念 (design concept)』，而不是一種程式語法</p>
+<h2 id="oop">三大特性</h2>
+<ul>
+    <li>封裝(Encapsulation)</li>
+    <li>繼承(Inheritance)</li>
+    <li>多型(Polymorphism)</li>
+    <li style="margin-left:40px;">多載(Overload)</li>
+    <li style="margin-left:40px;">覆寫(Override)</li>
+</ul>
+<h3 id="Encapsulation">封裝(Encapsulation)</h3>
+<p><strong>把物件隱藏在類別裡，通過設定存取權限，只開放公開的方法讓別人可以使用，把內部實作細節隱藏，做到保護資料的目的
+</strong></p>
+<a class="link"   target="_blank" rel="noopener" href="https://yubin551.gitbook.io/java-note/object_oriented_programming/encapsulation" >詳細資料<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+
+<p>例如說"提款機"</p>
+<p>你不需要知道內部還有多少錢，也不需要知道實際運作流程，你只要插入卡片，輸入密碼即可，接著就可以透過螢幕上按鈕互動</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class ATM&#123;</span><br><span class="line">    private int 剩餘金額;</span><br><span class="line">    private boolean 身分確認(密碼)&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;;</span><br><span class="line">    public void 提款()&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    public void 查詢餘額(密碼)&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="common">常見修飾子</h4>
+<h5>private</h5>
+<p>開放權限最低，只有同類別的成員可存取</p>
+
+<h5>public</h5>
+<p>可被所有類別存取</p>
+
+<h5>protected</h5>
+<p>可被不同package的子類別(繼承)存取</p>
+
+<h5>default</h5>
+<p>只能被同個package存取</p>
+
+<!-- ------------------------------------------------------------------------------------- -->
+<h3 id="Inheritance">繼承 (Inheritance)</h3>
+<p><strong>子類別會擁有父類別全部的成員及方法，可以再透過覆寫(override)實作專屬自己的屬性
+</strong></p>
+<a class="link"   target="_blank" rel="noopener" href="https://yubin551.gitbook.io/java-note/object_oriented_programming/inheritance" >詳細資料<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<!-- ------------------------------------------------------------------------------------- -->
+<h3 id="Polymorphism">多型(Polymorphism)</h3>
+<a class="link"   target="_blank" rel="noopener" href="https://yubin551.gitbook.io/java-note/object_oriented_programming/polymorphism" >Java備忘筆記<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<a class="link"   target="_blank" rel="noopener" href="https://matthung0807.blogspot.com/2018/02/java-overload.html" >肉豬工程師<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<p><strong>指父類別為子類別的通用型態，再透過子類別可覆寫父類別的方法來達到多型的效果，
+利用父類別提供的方法呼叫，執行子類別自己的行為。</strong></p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">    void move() &#123;</span><br><span class="line">        System.out.println(&quot;move...move...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Dog extends Animal &#123;</span><br><span class="line">    void move() &#123;</span><br><span class="line">        System.out.println(&quot;跑...跑...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Bird extends Animal &#123;</span><br><span class="line">    void move() &#123;</span><br><span class="line">        System.out.println(&quot;飛...飛...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Fish extends Animal &#123;</span><br><span class="line">    void move() &#123;</span><br><span class="line">        System.out.println(&quot;游...游...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="overload">多載(Overload)</h4>
+<p><strong>指在一個類別(class)中，定義多個名稱相同，但參數(Parameter)不同的方法(Method)。</strong></p>
+<p>例如Java String的indexOf(...)即為多載的例子。</p>
+<p>以indexOf為名稱的方法分別為:</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public int indexOf(int ch)</span><br><span class="line">public int indexOf(int ch, int fromIndex)</span><br><span class="line">public int indexOf(String str)</span><br><span class="line">public int indexOf(String str, int fromIndex)</span><br></pre></td></tr></table></figure></div>
+<p>所以只要方法的參數型態或數目不同，則允許多個相同名稱的方法存在。但要注意多載並不包含回傳型態不同，也就是如果方法的名稱相同，參數型態及數目相同，而只有回傳型態不同，仍有命名衝突的錯誤。例如下面範例的public String hello()即與public void hello()發生命名衝突。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public interface HelloWorld &#123;</span><br><span class="line">    void hello(); // 與最下面的 String hello() 衝突</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">    void hello(int i);</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">    void hello(int i, int j) ;</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">    void hello(int i, String s);</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">    void hello(String s) ;</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">    String hello();  // 回傳型態不同並無多載，與最上面的 void hello() 衝突</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="override">覆寫(Override)</h4>
+<p>通常用於繼承子類別，指子類別可以覆寫父類別的方法內容，使該方法擁有不同於父類別的行為。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // Animal為Dog及Bird的通用型態</span><br><span class="line">        Animal dog = new Dog();   // 子類別Dog物件分派至Animal型別變數dog</span><br><span class="line">        Animal bird = new Bird(); // 子類別Bird物件分派至Animal型別變數bird</span><br><span class="line">        act(dog);  // run</span><br><span class="line">        act(bird); // fly</span><br><span class="line">    &#125;</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">    private static void act(Animal animal) &#123; // 因為多型，所以參數以通用的父類別傳入</span><br><span class="line">        animal.move(); // 因為多型及覆寫，所以實際執行的方法為子類別的方法內容</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">class Animal &#123;</span><br><span class="line">    public void move() &#123;</span><br><span class="line">        System.out.println(&quot;move&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">class Dog extends Animal &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void move() &#123;</span><br><span class="line">        System.out.println(&quot;run&quot;); // 覆寫父類別Animal.move()的內容</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">class Bird extends Animal &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void move() &#123;</span><br><span class="line">        System.out.println(&quot;fly&quot;); // 覆寫父類別Animal.move()的內容</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<!-- ------------------------------------------------------------------------------------- -->
+<h3 id="Abstract">抽象(Abstract)</h3>
+<a class="link"   target="_blank" rel="noopener" href="https://yubin551.gitbook.io/java-note/object_oriented_programming/abstract" >詳細資料<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<p>抽象就是用來隱藏細節，可以想像成一種概念，並不存在於世界上。</p>
+<p>在『多型』的章節中，我們有一個Animal的類別，但現實生活中有這個東西嗎？ 動物只是一個概念，並沒有一種生物叫作動物。 狗、鳥、魚都是實際存在於世界上的實體，他們都是動物，現實中卻沒有一個實體叫作動物。</p>
+<p>如果聽起來卡卡的，再反覆讀幾次。 所以我們可以把動物視為一種『概念』，他是抽象的，不存在於世界上的。 而Dog、Bird、Fish都具備這個概念的特質，所以繼承Animal。</p>
+<!-- ------------------------------------------------------------------------------------- -->
+<h4 id="abstract_class">抽象類別 abstract class</h4>
+<ul>特性：
+    <li>抽象類別不能直接被實例化。</li>
+    <li>可以包含抽象方法（沒有實現的部分）和具體方法（有實現的部分）。</li>
+    <li>子類別需要實現抽象方法。</li>
+</ul>
+<p>利用abstract來修飾類別，可以使類別變成抽象類別，使用方法：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">abstract class 類別名稱&#123;</span><br><span class="line">    // 成員定義...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>抽象是一個概念，而不是一個存在的實體。同樣的，抽象類別不能被實體化。</p>
+<strong class="text-danger">可使用繼承去實作抽象類別</strong>
+<!-- ------------------------------------------------------------------------------------- -->
+<h4 id="abstract_method">抽象方法 abstract method</h4>
+<p>利用abstract，可以使方法變成抽象方法，抽象方法只能寫方法的原型，無法定義方法的本體(不能有{})。</p>
+
+<p>使用格式：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abstract &lt;修飾子&gt; 回傳型態 方法名稱(&lt;參數...&gt;);</span><br></pre></td></tr></table></figure></div>
+<p>範例：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abstract void eat();</span><br></pre></td></tr></table></figure></div>
+<p>錯誤範例：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">abstract void eat()&#123;    // 編譯錯誤：Abstract methods do not specify a body</span><br><span class="line">    // 不管有沒有寫東西，都編譯錯誤，抽象方法不能定義方法本體</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>注意事項
+    <li>抽象方法只能定義在抽象類別中。 (否則會編譯錯誤)</li>
+    <li>繼承抽象類別的類別必須實作(override)全部抽象方法。 (否則會編譯錯誤)</li>
+</ul>
+<p>如果子類別沒有實作抽象方法，則子類別必須定義為抽象類別。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Cat extends Animal &#123;</span><br><span class="line">    // 沒有實作 eat() 方法，會導致編譯錯誤</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>將 Cat 定義為抽象類別，則不需要實作 eat()</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">abstract class Cat extends Animal &#123;</span><br><span class="line">    // 不需要實作 eat()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<!-- ------------------------------------------------------------------------------------- -->
+<h3 id="Interface">介面(Interface)</h3>
+<a class="link"   target="_blank" rel="noopener" href="https://yubin551.gitbook.io/java-note/object_oriented_programming/interface" >詳細資料<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<h5>介面，描述不同類別的共通行為。只要能夠實作介面方法，就可以實作該介面。</h5> 
+<p>介面裡面定義方法原型，不能有具體實作方法，用來規範實作介面的類別，就必須實做介面方法，確保遵守一致的設計。</p>
+
+<p>假設有"烤箱" 跟"冷氣"，他們共同屬性是"電器設備"，都需要插電才會運作
+於是可以把插座設計成介面，方法就是插電這個行為
+然後抽象類別110v、220v分別實作介面，然後"烤箱" "冷氣"再分別繼承抽象類別，去實作自己的方法內容</p>
+
+<h5>實際例子說明</h5>
+<h6>1. 問題背景</h6>
+<ul>
+    <li>烤箱和冷氣都是「電器設備」，它們有一個共同的特徵：需要插電才能運作。</li>
+    <li>我們可以抽象出這個共同的特徵，並設計成一個介面。</li>
+</ul>
+<h6>2. 設計方案</h6>
+<ul>
+    <li>介面（Interface）：定義「插電」這個行為，保證所有電器設備都需要實作這個功能。</li>
+    <li>抽象類別（Abstract Class）：因為不同的電器使用不同的電壓，我們可以將「110V」和「220V」抽象化，並實作「插電」行為，對電壓類型做區分。</li>
+    <li>具體類別（Concrete Class）：烤箱繼承 110V 抽象類別，冷氣繼承 220V 抽象類別，並在各自的具體類別中實現專屬的功能。</li>
+</ul>
+<h5>程式碼範例</h5>
+<p>定義介面</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 插座介面，定義插電的行為</span><br><span class="line">public interface Socket</span><br><span class="line">&#123;</span><br><span class="line">	void connect(string str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>抽象類別實作介面</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public abstract class v110 : Socket</span><br><span class="line">&#123;</span><br><span class="line">	public virtual void connect(string str)</span><br><span class="line">	&#123;</span><br><span class="line">		Console.WriteLine(str + &quot;is using 110v&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">public abstract class v220 : Socket</span><br><span class="line">&#123;</span><br><span class="line">	public virtual void connect(string str)</span><br><span class="line">	&#123;</span><br><span class="line">		Console.WriteLine(str + &quot;is using 220v&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>具體類別繼承抽象類別</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//繼承抽象類別</span><br><span class="line">public class Refrigerator : v110</span><br><span class="line">&#123;</span><br><span class="line">	private string str = &quot;&quot;;</span><br><span class="line">	public void refrigeration(string str)</span><br><span class="line">	&#123;</span><br><span class="line">		connect(str);</span><br><span class="line">		Console.WriteLine(str + &quot;開始冷藏&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class AirConditioning : v220</span><br><span class="line">&#123;</span><br><span class="line">	public void Operation(string str)</span><br><span class="line">	&#123;</span><br><span class="line">		connect(str);</span><br><span class="line">		System.Console.WriteLine(str + &quot;運作中...&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>主程式執行範例</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">internal class Program</span><br><span class="line">&#123;</span><br><span class="line">    static void Main(string[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        Refrigerator refrigerator = new Refrigerator();</span><br><span class="line">        refrigerator.refrigeration(&quot;冰箱&quot;);</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">        AirConditioning air_conditioning = new AirConditioning();</span><br><span class="line">        air_conditioning.Operation(&quot;冷氣&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<!-- ------------------------------------------------------------------------------------- -->
+<h4 id="abstract_implements_interface">抽象類別實作介面的特性</h4>
+<ul>1. 抽象類別可以選擇實作介面的方法：
+    <li style="margin-left:40px;">抽象類別在實作介面時，可以選擇完全實作介面中的方法，也可以不實作，或者部分實作。</li>
+    <li style="margin-left:40px;">如果抽象類別中沒有實作某些介面的方法，那麼子類別必須實作這些方法。</li>
+</ul>
+<p>下面有範例: </p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">interface A&#123;</span><br><span class="line">    void a();</span><br><span class="line">    void b();</span><br><span class="line">&#125;</span><br><span class="line">abstract class AbsClass implements A&#123;</span><br><span class="line">    public void b()&#123;</span><br><span class="line">        System.out.println(&quot;hello b~&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    abstract void c();</span><br><span class="line">&#125;</span><br><span class="line">class MyClass extends AbsClass&#123;  </span><br><span class="line">    public void a() &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    // 方法b()已經在AbsClass實作，MyClass不需要再實作，當然也可以再覆寫b()</span><br><span class="line">    public void c() &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>2. 抽象類別的目的：
+    <li style="margin-left:40px;">抽象類別通常用於定義共同的基底行為（部分實作）或邏輯，並讓子類別繼承和擴展。</li>
+</ul>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">public interface Socket</span><br><span class="line">&#123;</span><br><span class="line">    void connect(string str);</span><br><span class="line">&#125;</span><br><span class="line">//抽象類別實作介面</span><br><span class="line">abstract class v110 : Socket</span><br><span class="line">&#123;</span><br><span class="line">    public void connect(string str)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(str + &quot;is 110v&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">abstract class v220 : Socket</span><br><span class="line">&#123;</span><br><span class="line">    public void connect(string str)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(str + &quot;is 220v&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Refrigerator : v110</span><br><span class="line">&#123;</span><br><span class="line">    private string str = &quot;&quot;;</span><br><span class="line">    public void refrigeration(string str)</span><br><span class="line">    &#123;</span><br><span class="line">        this.str = str;</span><br><span class="line">        connect(str);</span><br><span class="line">        System.Console.WriteLine(str + &quot;開始冷藏&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class AirConditioning : v220</span><br><span class="line">&#123;</span><br><span class="line">    private string str = &quot;&quot;;</span><br><span class="line">    public void Operation(string str)</span><br><span class="line">    &#123;</span><br><span class="line">        this.str = str;</span><br><span class="line">        connect(str);</span><br><span class="line">        System.Console.WriteLine(str + &quot;運作中...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p><strong>原則就是，非抽象類別要實作所有未定義的方法。</strong></p>
+<!-- ------------------------------------------------------------------------------------- -->
+<h4 id="interface_method">實作介面方法必須為公開(public)</h4>
+<ul>介面的設計規則：
+    <li style="margin-left:40px;">當一個類別或抽象類別實作介面時，這些方法的存取修飾符必須至少符合介面的可見性要求，也就是 <strong>public</strong></li>
+</ul>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">abstract class v110 : Socket</span><br><span class="line">&#123;</span><br><span class="line">    // 錯誤：介面成員必須是 public</span><br><span class="line">    protected void connect(string str)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(str + &quot; is 110v&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="interface_func">1. 介面的用途是什麼？</h4>
+<ul>
+    <li>提供多型（Polymorphism）的基礎。</li>
+    <li>達到鬆耦合設計，方便程式碼擴展與維護。</li>
+    <li>支援依賴反轉原則（Dependency Inversion Principle），在設計模式（如 DI）中非常重要。</li>
+</ul>
+
+<h4 id="abs_inte">2. 抽象類別與介面的差異</h4>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th style="width:100px;">特性</th>
+            <th>抽象類別</th>
+            <th>介面</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>多重繼承</td>
+            <td>不支援多重繼承，但可實現多個介面</td>
+            <td>支援多重實現</td>
+        </tr>
+         <tr>
+            <td>實現內容</td>
+            <td>可以包含抽象方法和具體方法</td>
+            <td>只能包含抽象方法（在部分語言中允許預設方法，例如 C# 的 default methods）</td>
+        </tr>
+         <tr>
+            <td>用於</td>
+            <td>提供部分實現，讓子類別共享</td>
+            <td>定義標準和規範</td>
+        </tr>
+         <tr>
+            <td>靈活性</td>
+            <td>用於類別間有明確繼承關係的情況</td>
+            <td>用於完全不相關的類別之間共享行為</td>
+        </tr>
+    </tbody>
+</table>
+<!-- ------------------------------------------------------------------------------------- -->
+<h3 id="Constructor">建構子</h3>
+<a class="link"   target="_blank" rel="noopener" href="https://yubin551.gitbook.io/java-note/object_oriented_programming" >詳細資料<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<p>在工程師使用 new 關鍵字來創造物件時被呼叫，用來初始化物件的資料欄位。</p>
+<div class="mb-0">
+    <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/SJIiKnx.png"
+                     
+                >
+</div>
+<h5>建構子有幾個特點：</h5>
+<ol>
+    <li>必須與類別名稱同名。</li>
+    <li>不可以有回傳值。</li>
+    <li>可以帶入引數(arguments)。</li>
+    <li>主要功能為初始化物件，搭配new關鍵字被呼叫。</li>
+    <li>可以有多個建構子，但引數型態及個數不可以相同。</li>
+</ol>
+
+		</div>
+
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/oop/">#oop</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2025/01/14/Ngrok/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Ngrok說明</span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/01/10/RedefineDescription/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">整理通用與redefine主題設定</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-TW',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">物件導向OOP</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#oop"><span class="nav-text">三大特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Encapsulation"><span class="nav-text">封裝(Encapsulation)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#common"><span class="nav-text">常見修飾子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inheritance"><span class="nav-text">繼承 (Inheritance)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Polymorphism"><span class="nav-text">多型(Polymorphism)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#overload"><span class="nav-text">多載(Overload)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#override"><span class="nav-text">覆寫(Override)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract"><span class="nav-text">抽象(Abstract)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#abstract_class"><span class="nav-text">抽象類別 abstract class</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#abstract_method"><span class="nav-text">抽象方法 abstract method</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interface"><span class="nav-text">介面(Interface)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#abstract_implements_interface"><span class="nav-text">抽象類別實作介面的特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#interface_method"><span class="nav-text">實作介面方法必須為公開(public)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#interface_func"><span class="nav-text">1. 介面的用途是什麼？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#abs_inte"><span class="nav-text">2. 抽象類別與介面的差異</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constructor"><span class="nav-text">建構子</span></a></li></ol></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2025</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Ting</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        8 posts in total
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Search..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/libs/anime.min.js"></script>
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+	
+</body>
+
+</html>

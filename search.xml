@@ -1,0 +1,1313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hexo環境建置、指令紀錄</title>
+    <url>/2025/01/08/HexoDescription/</url>
+    <content><![CDATA[<style>
+    hr{ width: 100%;
+        border-style: solid;
+        border-color: gray;
+        border-width: 2px;
+        margin:15px 0px !important;}
+    .ms-5{margin-left:30px !important; font-size:18px;}
+    th,td{font-size:16px !important;}
+       
+</style>
+<!-- ------------------------------------------------------------------------------------- -->
+<hr>
+<h3 id="install_hexo">1. 安裝Hexo</h3>
+<ul class="mb-0">前置作業
+    <li class="ms-5">先安裝Node.js</li>
+    <li class="ms-5">先安裝Git</li>
+</ul>
+<p class="mt-0">下載完之後，可在cmd分別下node-v 、 git -v檢查</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/g9Ucf4d.png"
+                      class="" alt="hexo.jpg"
+                > 
+<p>打開cmd，輸入下面指令</p>
+
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure></div>
+
+<p class="">-g （Global Installation）全域安裝</p>
+<p class="">下載完之後，可在cmd下hexo -v檢查</p>
+<!-- ------------------------------------------------------------------------------------- -->
+<hr>
+<h3 id="initialize_hexo">2. 初始化Hexo</h3>
+<ul>有兩個做法
+    <li class="ms-5">直接輸入下面指令，會自動於所在目錄建立一個新資料夾以操作 Hexo。</li>
+    <div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init &lt;資料夾名稱&gt;</span><br></pre></td></tr></table></figure></div>
+    <li class="ms-5">也可以先建立好資料夾，再切換到該資料夾，同樣能進行初始化</li>
+
+<pre><code><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd &lt;資料夾路徑&gt;</span><br></pre></td></tr></table></figure></div>
+</code></pre>
+</ul>
+<!-- ------------------------------------------------------------------------------------- -->
+<hr>
+<h3 id="folder_install_files">3. Hexo檔案說明</h3>
+<p>確認路徑在專案資料夾中</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></div>
+<p>完成後可看到以下檔案</p>
+<h4 id="_config.yml">_config.yml</h4>
+<ul>
+    <li class="ms-5">有關網站配置的檔案，可修改各種配置設定。例如：網站標題、網站的網址、使用主題名稱等</li>
+</ul>
+<h4 id="scaffolds">scaffolds</h4>
+<ul>
+    <li class="ms-5">當我們建立新文章時，Hexo 會根據 scaffolds 中的模板建立相對應的檔案</li>
+    <li class="ms-5">post、page 和 draft，分別對應：要發布的文章、頁面、草稿</li>
+</ul>
+<p>post模板可修改為</p>
+<p><strong>如果有使用format，須注意會影響到markdown語法</strong></p>
+<p><strong class="text-danger">excerpt: 要有預設值，不能為空</strong></p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags:</span><br><span class="line">categories:</span><br><span class="line">excerpt: &#x27;&#x27;</span><br><span class="line">---</span><br></pre></td></tr></table></figure></div>
+<ul>
+    <li>生成標籤和分類</li>
+    <li>可自訂首頁摘要</li>
+</ul>
+<!-- ------------------------------------------------------------------------------------- -->
+<h4 id="themes">themes</h4>
+<ul>
+    <li class="ms-5">用來存放主題的資料夾</li>
+    <li class="ms-5">Hexo 會根據主題來解析 scouce 資料夾中的檔案並產生靜態頁面。預設主題為 landscape</li>
+</ul>
+<!-- ------------------------------------------------------------------------------------- -->
+<h4 id="source">source</h4>
+<ul>
+    <li class="ms-5">通常資料夾命名開頭會加上底線 _，例如 _imgs</li>
+    <li class="ms-5">以 _ 開頭的檔案、資料夾或隱藏檔案會被忽略，除了 _posts 資料夾以外</li>
+    <li class="ms-5">Markdown 檔和 HTML 檔會被解析，並放到 public 資料夾，而其他檔案則會被拷貝過去</li>
+</ul>
+<!-- ------------------------------------------------------------------------------------- -->
+<h4 id="source_public_deploy_git">source & public & .deploy_git</h4>
+<ul>
+    <li class="ms-5">執行 hexo generate 之後，會將 scorce 文件夾中的 Markdown 檔和 HTML 檔進行解析，再結合主題進行渲染，生成靜態網站</li>
+    <li class="ms-5">執行 hexo deploy 之後，則會將 public 文件夾中的內容部署到 GitHub，並生成 .deploy_git 資料夾，因此內容與 public 幾乎相同</li>
+    <li class="ms-5">關係箭頭圖: </li>
+
+  <div class="note p-4 mb-4 rounded-small default">
+    <p>source -&gt; public -&gt; .deploy_git</p>
+
+  </div>
+</ul>
+<!-- ------------------------------------------------------------------------------------- -->
+<hr>
+<h3 id="common_command">4. 常用指令</h3>
+
+<h4 id="new_post">post 新增文章</h4>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new post &quot;我的第一篇文章&quot;</span><br></pre></td></tr></table></figure></div>
+<ul>
+    <li>用途：用於創建 文章（Post）。</li>
+    <li>生成位置：文章會被存放在 /source/_posts/ 資料夾中。</li>
+    <ul>特點:
+        <li style="margin-left:40px;">支援分類（Categories）和標籤（Tags）。</li>
+        <li style="margin-left:40px;">自動顯示在文章列表，並支持分頁和排序。</li>
+    </ul>
+    <ul>網址結構
+        <li style="margin-left:40px;">默認網址會是 /YYYY/MM/DD/文章名稱/</li>
+    </ul>
+</ul>
+<h4 id="new_page">page 新增頁面</h4>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page &quot;about&quot;</span><br></pre></td></tr></table></figure></div>
+<ul>
+    <li>用於創建 頁面（Page）。</li>
+    <li>生成位置：頁面會被存放在 /source/ 資料夾的根目錄或自定義資料夾中。</li>
+    <ul>特點:
+        <li style="margin-left:40px;">不會出現在文章列表，通常用於靜態頁面（如關於頁、聯絡頁等）。</li>
+        <li style="margin-left:40px;">頁面可以手動添加到導航欄，作為獨立的功能頁面。</li>
+    </ul>
+    <ul>網址結構
+        <li style="margin-left:40px;">默認網址會是 /about/</li>
+    </ul>
+</ul>
+
+<h5>差異對比</h5>
+<table>
+    <thead>
+        <tr>
+            <th>功能</th>
+            <th>hexo new post</th>
+            <th>hexo new page</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>用途</td>
+            <td>創建博客文章，支持分頁顯示</td>
+            <td>創建靜態頁面，如「關於我」</td>
+        </tr>
+        <tr>
+            <td>存放位置</td>
+            <td>/source/_posts/</td>
+            <td>/source/{頁面名稱}/index.md</td>
+        </tr>
+        <tr>
+            <td>出現在首頁</td>
+            <td>會自動顯示在文章列表中</td>
+            <td>不會顯示，需要手動添加到導航</td>
+        </tr>
+        <tr>
+            <td>支持分類/標籤</td>
+            <td>支持</td>
+            <td>不支持</td>
+        </tr>
+        <tr>
+            <td>網址格式</td>
+            <td>/YYYY/MM/DD/文章名稱/</td>
+            <td>/{頁面名稱}/</td>
+        </tr>
+    </tbody>
+</table>
+<!-- ------------------------------------------------------------------------------------- -->
+<h4 id="clean_file_cache">clean 清除靜態檔案與快取</h4>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="generate_static_file">generate 產生靜態檔案</h4>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="run_server">server 啟動伺服器</h4>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></div>
+
+<!-- ------------------------------------------------------------------------------------- -->
+<hr>
+<h3 id="push_github">5. 部屬到GitHub</h3>
+<p>將專案名稱命名為 username.github.io，username 記得改成自己的帳號名稱</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/githubRepoName.png"
+                     
+                >
+<h4 id="install_git">1. 安裝 Git 相關套件</h4>
+<p>回到 hexo 資料夾，在終端機輸入下列指令：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="edit__config.yml">2. 修改 _config.yml 檔案的 Deployment 設定</h4>
+<p>需注意這裡指的 _config.yml 檔案是根目錄的，而不是 themes 主題中的。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: </span><br><span class="line">  branch: </span><br></pre></td></tr></table></figure></div>
+<ul>
+    <li class="ms-5">type：選擇部屬模式，這裡填 git</li>
+    <li class="ms-5">repo：GitHub repository 的連結，記得將 username 修改成自己的帳號名稱</li>
+    <li class="ms-5">branch：選擇分支，預設為 master</li>
+</ul>
+
+<h4 id="renew_generate">3. 更新靜態頁面</h4>
+<p>修改完成後，執行以下程式</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo cl    // 清除之前建立的靜態檔案</span><br><span class="line">hexo g     // 建立靜態頁面</span><br><span class="line">hexo d     // 部署至 GitHub</span><br></pre></td></tr></table></figure></div>
+<p>可合併第二、三行指令：hexo g -d 即可在產生靜態頁面後立刻部署。</p>
+
+<h4 id="no_refresh">4. 頁面怎麼沒有刷新?</h4>
+<strong>如果你之前有部屬過了，再次deploy到github打開網頁，發現還是舊的畫面</strong>
+
+  <div class="note-large default">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>請按下</p>
+
+    </div>
+    <div class="notel-content">
+      <p>ctrl + shift + r</p>
+
+    </div>
+  </div>
+
+<p>因為google為了加快網頁載入速度，會自動快取js、css，需要刷新快取</p>
+<!-- ------------------------------------------------------------------------------------- -->
+<hr>
+<h3 id="description_notes">※ 使用外部套件注意事項</h3>
+<p>如果跟我一樣想快速調整版面，引入BootStrap套件，需要注意會有跟主題衝突的風險，
+因此建議只引入必要性的套件</p>
+
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-utilities.min.css&quot;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="bootstrap">bootstrap-utilities.min.css 包含以下內容：</h4>
+<ul><strong>1. 間距工具（Margin & Padding）</strong>
+    <li class="ms-5">類似 m-0, p-2, mt-3, mx-1 等。</li>
+    <li class="ms-5">支援方向（如 t, b, l, r, x, y）和數值（如 0, 1, 2, 等）。</li>
+</ul>
+<ul><strong>2. 顯示工具（Display Utilities）</strong>
+    <li class="ms-5">如 d-none, d-flex, d-inline 等，控制元素顯示方式。</li>
+</ul>
+<ul><strong>3. 定位工具（Position Utilities）</strong>
+    <li class="ms-5">如 position-relative, position-absolute 等。</li>
+</ul>
+<ul><strong>4. 其他小工具類</strong>
+    <li class="ms-5">如 text-center, text-start。</li>
+    <li class="ms-5">還有 overflow-auto, overflow-hidden。</li>
+</ul>
+p.s.
+<p class="" style="">我自己就是遇到文章的(toc)目錄的滾動動畫有問題，才知道有這個問題，為此我還特別去找redefine全部有關
+toc.js與scroll監聽事件都改了一遍，還是不起作用....，做到一半放棄了去吃飯，突然靈光一閃想到bootstrap，還真的被我找到問題了...</p>
+]]></content>
+      <categories>
+        <category>教學</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>踩坑</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Clean Architecture</title>
+    <url>/2025/04/18/cleanArchitecture/</url>
+    <content><![CDATA[<style>
+    img{max-height:800px; max-width:750px;}    
+    /* a{color: blue;} */
+    /* 覆蓋設定navbar*/
+    /* redefine_navbar_hover_color --primary-color: #a31f34; */
+    .navbar-item a{color:black !important;}
+    .navbar-item a:hover{color: #a31f34 !important;}
+</style>
+
+<h2 id="What-is-Clean-Architecture"><a href="#What-is-Clean-Architecture" class="headerlink" title="What is Clean Architecture"></a><a class="link"   href="https://pjchender.dev/golang/note-go-clean-architecture/" >What is Clean Architecture<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></h2><h3 id="核心觀念"><a href="#核心觀念" class="headerlink" title="核心觀念"></a>核心觀念</h3><ul>
+<li><p><strong>獨立於框架：</strong> 將框架視為工具，而非將系統侷限於框架之中。當需要更換框架時，系統的商業邏輯不會受到影響。</p>
+</li>
+<li><p><strong>可測試：</strong> 能夠在沒有 UI、資料庫、網頁伺服器的情況下，單純測試商業邏輯。</p>
+</li>
+<li><p><strong>獨立於 UI：</strong> 可以在不改變系統架構的前提下更換 UI 介面。</p>
+</li>
+<li><p><strong>獨立於資料庫：</strong> 商業邏輯與資料庫系統分離，即使更換資料庫也不會影響核心業務運作。</p>
+</li>
+<li><p><strong>獨立於任何外部代理：</strong> 商業邏輯能夠獨立於任何第三方服務運行。</p>
+</li>
+</ul>
+<h2 id="層級結構（由外往內）"><a href="#層級結構（由外往內）" class="headerlink" title="層級結構（由外往內）"></a>層級結構（由外往內）</h2><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">🔴 第1層：Frameworks &amp; Drivers (最外層)</span><br><span class="line">└── 🟠 第2層：Interface Adapters</span><br><span class="line">    └── 🟡 第3層：Use Cases / Application Business Rules</span><br><span class="line">        └── 🔵 第4層：Entities (最內層)</span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<h3 id="第-1-層：Frameworks-Drivers（框架與驅動層）"><a href="#第-1-層：Frameworks-Drivers（框架與驅動層）" class="headerlink" title="第 1 層：Frameworks &amp; Drivers（框架與驅動層）"></a>第 1 層：Frameworks &amp; Drivers（框架與驅動層）</h3><h5 id="包含內容："><a href="#包含內容：" class="headerlink" title="包含內容："></a>包含內容：</h5><ul>
+<li><strong>資料庫系統</strong>：MySQL、PostgreSQL、MongoDB、Redis</li>
+<li><strong>Web 框架</strong>：Express.js、Fastify、Koa.js</li>
+<li><strong>外部服務</strong>：第三方 API、支付系統、郵件服務</li>
+<li><strong>配置檔案</strong>：環境變數、設定檔</li>
+</ul>
+<h5 id="特性："><a href="#特性：" class="headerlink" title="特性："></a>特性：</h5><ul>
+<li>最容易變化的層級</li>
+<li>具體的技術實現</li>
+<li>與外部世界直接接觸</li>
+</ul>
+<hr>
+<h3 id="第-2-層：Interface-Adapters（介面轉換器層）"><a href="#第-2-層：Interface-Adapters（介面轉換器層）" class="headerlink" title="第 2 層：Interface Adapters（介面轉換器層）"></a>第 2 層：Interface Adapters（介面轉換器層）</h3><h5 id="包含內容：-1"><a href="#包含內容：-1" class="headerlink" title="包含內容："></a>包含內容：</h5><ul>
+<li><strong>Controllers</strong>：處理 HTTP 請求、路由控制</li>
+<li><strong>Presenters</strong>：格式化輸出數據、回應格式</li>
+<li><strong>Gateways</strong>：資料庫存取實現、外部 API 呼叫</li>
+<li><strong>Repository 實現</strong>：具體的數據存取邏輯</li>
+<li><strong>Validators</strong>：輸入驗證、數據轉換</li>
+</ul>
+<h5 id="特性：-1"><a href="#特性：-1" class="headerlink" title="特性："></a>特性：</h5><ul>
+<li>連接內外層的橋樑</li>
+<li>數據格式轉換</li>
+<li>實現內層定義的介面</li>
+</ul>
+<hr>
+<h3 id="第-3-層：Use-Cases（應用層）"><a href="#第-3-層：Use-Cases（應用層）" class="headerlink" title="第 3 層：Use Cases（應用層）"></a>第 3 層：Use Cases（應用層）</h3><h5 id="包含內容：-2"><a href="#包含內容：-2" class="headerlink" title="包含內容："></a>包含內容：</h5><ul>
+<li><strong>Use Cases</strong>：具體的業務流程（CreateUser、ProcessOrder）</li>
+<li><strong>Application Services</strong>：應用程式特定的業務邏輯</li>
+<li><strong>介面定義</strong>：Repository、Gateway 等介面契約</li>
+<li><strong>Business Rules</strong>：應用程式層級的業務規則</li>
+</ul>
+<h5 id="特性：-2"><a href="#特性：-2" class="headerlink" title="特性："></a>特性：</h5><ul>
+<li>協調 Entities 完成業務流程</li>
+<li>定義對外部的介面需求</li>
+<li>應用程式特定的邏輯</li>
+</ul>
+<hr>
+<h3 id="第-4-層：Entities（實體層）"><a href="#第-4-層：Entities（實體層）" class="headerlink" title="第 4 層：Entities（實體層）"></a>第 4 層：Entities（實體層）</h3><h5 id="包含內容：-3"><a href="#包含內容：-3" class="headerlink" title="包含內容："></a>包含內容：</h5><ul>
+<li><strong>Domain Entities</strong>：核心業務物件（User、Product、Order）</li>
+<li><strong>Value Objects</strong>：值物件（Money、Email、Address）</li>
+<li><strong>Domain Rules</strong>：企業核心業務規則</li>
+<li><strong>Domain Events</strong>：領域事件</li>
+</ul>
+<h5 id="特性：-3"><a href="#特性：-3" class="headerlink" title="特性："></a>特性：</h5><ul>
+<li>最穩定的層級</li>
+<li>不依賴任何外部技術</li>
+<li>核心業務規則</li>
+</ul>
+<hr>
+<h2 id="實際範例對應"><a href="#實際範例對應" class="headerlink" title="實際範例對應"></a>實際範例對應</h2><h5 id="以電商系統為例："><a href="#以電商系統為例：" class="headerlink" title="以電商系統為例："></a>以電商系統為例：</h5><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">🔴 Frameworks &amp; Drivers</span><br><span class="line">├── Express.js 伺服器</span><br><span class="line">├── MySQL 資料庫</span><br><span class="line">├── Redis 快取</span><br><span class="line">└── 第三方支付 API</span><br><span class="line"></span><br><span class="line">🟠 Interface Adapters</span><br><span class="line">├── ProductController (處理商品請求)</span><br><span class="line">├── OrderPresenter (格式化訂單回應)</span><br><span class="line">├── MySQLProductRepository (商品數據存取)</span><br><span class="line">└── PaymentGateway (支付服務介面實現)</span><br><span class="line"></span><br><span class="line">🟡 Use Cases</span><br><span class="line">├── CreateProductUseCase (建立商品流程)</span><br><span class="line">├── ProcessOrderUseCase (處理訂單流程)</span><br><span class="line">├── ProductRepository (介面定義)</span><br><span class="line">└── PaymentService (介面定義)</span><br><span class="line"></span><br><span class="line">🔵 Entities</span><br><span class="line">├── Product (商品實體)</span><br><span class="line">├── Order (訂單實體)</span><br><span class="line">├── User (用戶實體)</span><br><span class="line">└── Money (金額值物件)</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="依賴流向提醒"><a href="#依賴流向提醒" class="headerlink" title="依賴流向提醒"></a>依賴流向提醒</h5><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">框架層 → 介面層 → 用例層 → 實體層</span><br><span class="line">(外)                           (內)</span><br></pre></td></tr></table></figure></div>
+
+<p>每一層都只能依賴比自己更內層的層級，這樣就能確保核心業務邏輯不會被外部技術細節污染！</p>
+<h2 id="Clean-Architecture-三大原則"><a href="#Clean-Architecture-三大原則" class="headerlink" title="Clean Architecture 三大原則"></a>Clean Architecture 三大原則</h2><h3 id="分層原則"><a href="#分層原則" class="headerlink" title="分層原則"></a>分層原則</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/y0G1qUn.jpeg"
+                      alt="分層原則"
+                ></p>
+<p><strong>▲ 上圖中，Entities 是架構中層級最高的一層，而最外圈屬於 I&#x2F;O 層，是層級最低的。</strong></p>
+<h4 id="高層與低層的定義"><a href="#高層與低層的定義" class="headerlink" title="高層與低層的定義"></a>高層與低層的定義</h4><p>《Clean Architecture》書中對於分層有明確的定義：<strong>「離 I&#x2F;O（輸入、輸出）越遠的元件層級越高，離 I&#x2F;O 越近的層級越低」。</strong></p>
+<h3 id="相依性原則-Dependency-Rule"><a href="#相依性原則-Dependency-Rule" class="headerlink" title="相依性原則 (Dependency Rule)"></a>相依性原則 (Dependency Rule)</h3><p><strong>🔴 重點：依賴方向必須由外往內、由低層往高層。</strong></p>
+<ul>
+<li>Entities 層的物件只能參考（依賴）同一層的其他物件，不可以參考其他層的物件</li>
+<li>Use Cases 層只能往內參考 Entities 層以及自己這一層的物件，不能往外參考其他層的物件</li>
+<li>分層式架構又分為嚴格跟鬆散兩種，對於嚴格的來說，相依性是不能跨層的，但對於鬆散的來說，只要相依性保持向內，那麼跨幾層並未嚴格規定，設計架構時按照需求決定。</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/AFhCClg.png"
+                      alt="相依性原則"
+                ></p>
+<p>如果 Use Cases 需要將資料儲存到資料庫，那一定要參考到最外層的資料庫物件，這該怎麼辦？</p>
+<p>Clean Architecture 透過<strong>依賴反轉 (Dependency Inversion Principle DIP)</strong>，確保相依性原則能夠被遵守。</p>
+<h4 id="滿足相依性原則的兩大好處"><a href="#滿足相依性原則的兩大好處" class="headerlink" title="滿足相依性原則的兩大好處"></a>滿足相依性原則的兩大好處</h4><ul>
+<li>因為高層的物件不再相依於框架等低層的物件，所以測試程式碼可以單獨進行測試，大幅簡化測試工作</li>
+<li>系統的核心功能位於 Entities 與 Use Cases 這兩層，要更換 I&#x2F;O 或應用程式框架變得簡單許多。例如，將 Web-Based UI 換成 Android App 時，只需要異動最外面兩層（Framework &amp; Drivers 與 Interface Adapters），就能直接銜接原本的 Use Cases 與 Entities</li>
+</ul>
+<h3 id="跨層原則"><a href="#跨層原則" class="headerlink" title="跨層原則"></a>跨層原則</h3><p><strong>🔴 重點：把 Entities 層的物件轉成 DTO 再往外傳遞。</strong></p>
+<p>請參考下圖，AddHostController 呼叫 AddHost Use Case，它再呼叫 Entity 層的 Host 物件，並獲得一個 Host 物件。接著 AddHost Use Case 直接把 Host 物件往外傳給 AddHostController。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/wsSVEEF.png"
+                      alt="跨層原則"
+                ></p>
+<p>當 Entities 層的物件離開 Use Case 層往外傳遞時（傳到 UI 或 DB 或其他外部系統），不要直接把 Entities 層的物件傳出 Use Case 層，而是<strong>要在 Use Cases 層定義往外傳遞的介面與資料結構</strong>。</p>
+<p>如果直接把 Entities 層的物件往外傳，例如直接傳給 UI，很有可能<strong>因為 UI 端的需求，導致回頭影響 Entities 層的物件</strong>。</p>
+]]></content>
+      <categories>
+        <category>clean code</category>
+      </categories>
+      <tags>
+        <tag>clean code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>整理通用與redefine主題設定</title>
+    <url>/2025/01/10/RedefineDescription/</url>
+    <content><![CDATA[<style>
+    .table_border{border-style: solid;
+        border-color: black;
+        border-width: 2px;}
+
+    img{max-height:500px;}    
+    a{color: blue;}
+    
+    /* 覆蓋設定navbar*/
+    /* redefine_navbar_hover_color --primary-color: #a31f34; */
+    .navbar-item a{color:black !important;}
+    .navbar-item a:hover{color: #a31f34 !important;}
+</style>
+<!-- ------------------------------------------------------------------------------------- -->
+<h2 id="getting-started">快速開始</h2>
+<h3 id="basic_info">基本設定</h3>
+<ul><a class="link"   href="https://redefine-docs.ohevan.com/zh/basic/info" >請點我<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+    <li>可變更網頁標題、副標題</li>
+    <li>可變更網頁logo、avatar</li>
+</ul>
+<!-- ------------------------------------------------------------------------------------- -->
+<h3 id="change_count">變更每頁顯示文章數量</h3>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">`# Pagination`</span><br><span class="line">per_page: 10</span><br><span class="line">pagination_dir: page</span><br></pre></td></tr></table></figure></div>
+<ul>在 Hexo 的根目錄 _config.yml 中
+    <li>per_page: 每頁顯示的文章數量</li>
+    <li>pagination_dir: 分頁的目錄名稱。例如，分頁網址會是 /page/2/</li>
+</ul>
+<hr>
+<!-- ------------------------------------------------------------------------------------- -->
+<h3 id="navbar">navbar設定</h3>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/haA52LH.png"
+                     
+                >
+<a class="link"   href="https://redefine-docs.ohevan.com/zh/home/navbar" >請點我<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+
+  <div class="note-large default">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>_config.redefine.yml</p>
+
+    </div>
+    <div class="notel-content">
+      <p>navbar:<br>  links:<br>    Home: # 主選單(row)名稱<br>    path: &#x2F; # 網址，可以是相對路徑或絕對路徑<br>    icon: fa-regular fa-house # Fontawesome圖示名稱（可選）</p>
+
+    </div>
+  </div>
+<hr>
+<!-- ------------------------------------------------------------------------------------- -->
+<h4>設定navbar語言</h4>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/dTZfQZu.png"
+                     
+                >
+<strong>請到<span class="text-danger">根目錄 _config.yml </span>中的 language 項目</strong>
+<a class="link"   href="https://redefine-docs.ohevan.com/zh/language" >請點我<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+
+  <div class="note-large default">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>_config.yml</p>
+
+    </div>
+    <div class="notel-content">
+      <p><code># Site</code><br>title: Ting’s Blog<br>subtitle: 這是一個關於技術分享、記錄心情的個人blog。<br>description: ‘’<br>keywords:<br>author: Ting<br>language: en<br>timezone: Asia&#x2F;Taipei</p>
+
+    </div>
+  </div>
+<hr>
+<!-- ------------------------------------------------------------------------------------- -->
+<h3 id="css_customize">自定義版面</h3>
+<p><strong>/themes/redefine/layout/layout.ejs</strong></p>
+<pre class="m-0 p-0"><span>全局文章的相關設定</span>
+    /* 整個文章容器 */
+    .article-content-container{padding:10px 20px !important;}
+        ------------------------------------------------------
+        p{font-size:18px;}
+        strong{font-size:18px;}
+        /* 設定文章側邊目錄(toc) */
+        .nav-item{font-size: 15px !important;}
+        .toc-content-container{margin: 0 !important; padding: 0 !important;}
+         ------------------------------------------------------
+        /* 首頁調整文章區塊版面 */
+		.home-article-item{margin: 10px !important; padding: 0 !important;}
+</pre>
+<hr>
+<p><strong>/source/_posts/RedefineDescription.md</strong></p>
+<pre class="m-0 p-0"><span>此篇文章設定</span>
+    /* 覆蓋設定navbar*/
+    /* redefine_navbar_hover_color --primary-color: #a31f34; */
+    .navbar-item a{color:black !important;}
+    .navbar-item a:hover{color: #a31f34 !important;}
+</pre>
+<hr>
+<h4 style="color:red;">設定首頁文章排列區塊版面</h4>
+<p><strong>/themes/redefine/layout/pages/home/home-content.ejs</strong></p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">div class=&quot;flex flex-col gap-3 px-3 pb-3 &lt;%= post.thumbnail !== false &amp;&amp; (post.thumbnail || post.cover || post.banner) ? &quot;pt-5&quot; : &quot;pt-7&quot; %&gt;&quot;&gt;&gt;</span><br></pre></td></tr></table></figure></div>
+<hr>
+<!-- ------------------------------------------------------------------------------------- -->
+<h2 id="article_customize">自訂文章</h2>
+<h3 id="edit_excerpt">編輯摘要</h3>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/HjpTWeM.png"
+                     
+                >
+<a class="link"  class="a_href"  href="https://redefine-docs.ohevan.com/zh/article_customize/excerpt" >請點我<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<hr>
+<!-- ------------------------------------------------------------------------------------- -->
+<h3 id="set_max_width">調整最大寬度</h3>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/LpbDh3j.png"
+                     
+                >
+<a class="link"  class="a_href"  href="https://redefine-docs.ohevan.com/zh/basic/global" >請點我<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+
+  <div class="note-large default">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>content</p>
+
+    </div>
+    <div class="notel-content">
+      <p>global.content_max_width</p>
+
+    </div>
+  </div>
+
+  <div class="note-large default">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>sidebar</p>
+
+    </div>
+    <div class="notel-content">
+      <p>global.sidebar_width</p>
+
+    </div>
+  </div>
+<hr>
+<!-- ------------------------------------------------------------------------------------- -->
+<h3 id="sidebar">首頁文章側邊欄</h3>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/EOShqLn.png"
+                     
+                >
+<a class="link"  class="a_href"  href="https://redefine-docs.ohevan.com/zh/home/home" >請點我<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+
+<h2 id="article_toc">內容文章側邊目錄</h2>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/cpjXf6R.png"
+                     
+                >
+<a class="link"  class="a_href"  href="https://redefine-docs.ohevan.com/zh/posts/articles" >請點我<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<hr>
+<!-- ------------------------------------------------------------------------------------- -->
+<h2 id="page_templates">頁面相關設定</h2>
+<strong style="color:red;">如要在導覽列使用tags、categories功能請先創建頁面</strong>
+<h3 id="tag">標籤tags</h3>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/TNCKtSB.png"
+                     
+                >
+<a class="link"  class="a_href"  href="https://redefine-docs.ohevan.com/zh/page_templates/tags" >請點我<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<hr>
+<!-- ------------------------------------------------------------------------------------- -->
+<h3 id="categories">分類categories</h3>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/6OokAXo.png"
+                     
+                >
+<a class="link"  class="a_href"  href="https://redefine-docs.ohevan.com/zh/page_templates/categories" >請點我<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<hr>
+<!-- ------------------------------------------------------------------------------------- -->
+<h3 id="notes">筆記模塊</h3>
+<h4 id="big_note">大提示塊</h4>
+<p>格式：（notel 意思是 note large ，也可以寫成 note-large ）</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% notel [顏色] [可選: 自訂圖標] [標题] %&#125;</span><br><span class="line">内容</span><br><span class="line">支持换行</span><br><span class="line">&#123;% endnotel %&#125;</span><br></pre></td></tr></table></figure></div>
+<a class="link"  class="a_href"  href="https://redefine-docs.ohevan.com/zh/modules/notes" >詳細說明<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<table class="">
+    <thead>
+        <tr class="">
+            <th>參數</th>
+            <th>說明</th>
+            <th>可選值</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>颜色</td>
+            <td>提示區塊的樣式或顏色</td>
+            <td>blue red cyan purple orange yellow green等颜色</td>
+        </tr>
+        <tr>
+            <td>自訂圖標</td>
+            <td>自訂圖標，選填</td>
+            <td>Font Awesome  的圖示名稱後半部,例如 fa-image</td>
+        </tr>
+    </tbody>
+</table>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% notel default fa-info 標題 %&#125;</span><br><span class="line">可換行</span><br><span class="line">可換行</span><br><span class="line">可換行</span><br><span class="line">&#123;% endnotel %&#125;</span><br><span class="line">---------------------------------</span><br><span class="line">&#123;% notel red 自定標題 %&#125;</span><br><span class="line">可換行</span><br><span class="line">可換行</span><br><span class="line">可換行</span><br><span class="line">&#123;% endnotel %&#125;</span><br></pre></td></tr></table></figure></div>
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/76mMbzK.png"
+                     
+                >
+<hr>
+
+<!-- ------------------------------------------------------------------------------------- -->
+<h4 id="small_note">小提示塊</h4>
+<p>格式：</p>
+<table class="">
+    <thead>
+        <tr class="">
+            <th>參數</th>
+            <th>說明</th>
+            <th>可選值</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>樣式/顏色</td>
+            <td>提示區塊的樣式或顏色</td>
+            <td>success default primary info warning danger tip question 以及 blue red cyan purple orange yellow green等颜色</td>
+        </tr>
+        <tr>
+            <td>自訂圖標</td>
+            <td>自訂圖標，選填</td>
+            <td>Font Awesome  的圖示名稱後半部,例如 fa-image</td>
+        </tr>
+    </tbody>
+</table>
+<p>範例: </p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note %&#125; 預設 提示區塊標籤 &#123;% endnote %&#125;</span><br><span class="line">&#123;% note default %&#125; default 提示區塊標籤&#123;% endnote %&#125;</span><br><span class="line">&#123;% note primary %&#125; primary 提示區塊標籤 &#123;% endnote %&#125;</span><br><span class="line">&#123;% note success %&#125; success 提示區塊標籤 &#123;% endnote %&#125;</span><br><span class="line">&#123;% note info %&#125; info 提示區塊標籤 &#123;% endnote %&#125;</span><br><span class="line">&#123;% note warning %&#125; warning 提示區塊標籤 &#123;% endnote %&#125;</span><br><span class="line">&#123;% 註 danger %&#125; danger 提示區塊標籤 &#123;% endnote %&#125;</span><br><span class="line">&#123;% note red fa-bolt%&#125; 自訂提示區塊標籤 &#123;% endnote %&#125;</span><br></pre></td></tr></table></figure></div>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/9l5LhKB.png"
+                     
+                >
+<hr>
+<!-- ------------------------------------------------------------------------------------- -->
+
+<h3 id="close_count_word">關閉字數、閱讀時間</h3>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/d6xCCIl.png"
+                     
+                >
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/23F898U.png"
+                     
+                >
+<a class="link"  class="a_href"  href="https://redefine-docs.ohevan.com/zh/footer" >請點我<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<hr>
+<!-- ------------------------------------------------------------------------------------- -->
+<h2 id="footer">頁腳設定</h2>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/wAT9iWO.png"
+                     
+                >
+<a class="link"  class="a_href"  href="https://redefine-docs.ohevan.com/zh/posts/articles" >請點我<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>]]></content>
+      <categories>
+        <category>整理記錄</category>
+      </categories>
+      <tags>
+        <tag>redefine</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker Compose 參數</title>
+    <url>/2025/06/05/dockerCompose/</url>
+    <content><![CDATA[<h2 id="前端專案啟動方式"><a href="#前端專案啟動方式" class="headerlink" title="前端專案啟動方式"></a>前端專案啟動方式</h2><p><strong>前端服務端口：</strong> <code>3004:3000</code><br><strong>瀏覽器訪問：</strong> <a class="link"   href="http://localhost:3004/" >http://localhost:3004<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 啟動前端服務</span></span><br><span class="line">docker-compose up frontend</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或啟動所有服務</span></span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="所有服務端口對應表"><a href="#所有服務端口對應表" class="headerlink" title="所有服務端口對應表"></a>所有服務端口對應表</h2><table>
+<thead>
+<tr>
+<th>服務名稱</th>
+<th>瀏覽器端口 → 容器端口</th>
+<th>用途說明</th>
+<th>訪問網址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>backend</strong></td>
+<td><code>5004 → 8080</code></td>
+<td>後端 API 服務 (.NET Core)</td>
+<td><a class="link"   href="http://localhost:5004/" >http://localhost:5004<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></td>
+</tr>
+<tr>
+<td><strong>frontend</strong></td>
+<td><code>3004 → 3000</code></td>
+<td>前端網頁服務 (Next.js)</td>
+<td><a class="link"   href="http://localhost:3004/" >http://localhost:3004<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></td>
+</tr>
+</tbody></table>
+<h2 id="端口對應格式說明"><a href="#端口對應格式說明" class="headerlink" title="端口對應格式說明"></a>端口對應格式說明</h2><h3 id="端口對應格式：瀏覽器端口-容器端口"><a href="#端口對應格式：瀏覽器端口-容器端口" class="headerlink" title="端口對應格式：瀏覽器端口:容器端口"></a>端口對應格式：<code>瀏覽器端口:容器端口</code></h3><ul>
+<li><strong>瀏覽器端口（左側）</strong>：從外部（您的電腦）訪問的端口，<strong>可以隨意調整</strong></li>
+<li><strong>容器端口（右側）</strong>：Docker 容器內部應用程式監聽的端口，<strong>通常不會變更</strong></li>
+</ul>
+<h3 id="端口調整範例："><a href="#端口調整範例：" class="headerlink" title="端口調整範例："></a>端口調整範例：</h3><p><strong>目前配置：</strong></p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">frontend:</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;3004:3000&quot;</span> <span class="comment"># 瀏覽器訪問 localhost:3004 → 容器內 3000 端口</span></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>可以調整為：</strong></p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">frontend:</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;3002:3000&quot;</span> <span class="comment"># 瀏覽器訪問 localhost:3002 → 容器內仍是 3000 端口</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;8080:3000&quot;</span> <span class="comment"># 瀏覽器訪問 localhost:8080 → 容器內仍是 3000 端口</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;5000:3000&quot;</span> <span class="comment"># 瀏覽器訪問 localhost:5000 → 容器內仍是 3000 端口</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="重要注意事項："><a href="#重要注意事項：" class="headerlink" title="重要注意事項："></a>重要注意事項：</h3><ol>
+<li><p><strong>瀏覽器端口可以自由調整</strong>：</p>
+<ul>
+<li>避免與其他服務衝突</li>
+<li>選擇未被占用的端口</li>
+<li>例如：<code>3004</code> → <code>3002</code>、<code>5004</code> → <code>5000</code></li>
+</ul>
+</li>
+<li><p><strong>容器內部端口通常不變更</strong>：</p>
+<ul>
+<li>Next.js 預設監聽 <code>3000</code> 端口</li>
+<li>.NET Core 預設監聽 <code>8080</code> 端口</li>
+<li>變更需要修改應用程式配置</li>
+</ul>
+</li>
+<li><p><strong>修改後需要重新啟動</strong>：</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">docker-compose down</span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<h2 id="網路架構說明"><a href="#網路架構說明" class="headerlink" title="網路架構說明"></a>網路架構說明</h2><h3 id="Docker-網路配置："><a href="#Docker-網路配置：" class="headerlink" title="Docker 網路配置："></a>Docker 網路配置：</h3><ul>
+<li><strong>dynamic-network：</strong> 主要應用服務網路（前端、後端服務）</li>
+</ul>
+<h2 id="常用操作指令"><a href="#常用操作指令" class="headerlink" title="常用操作指令"></a>常用操作指令</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 啟動所有服務</span></span><br><span class="line">docker-compose up -d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 僅啟動前端和後端</span></span><br><span class="line">docker-compose up -d frontend backend</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看服務狀態</span></span><br><span class="line">docker-compose ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看服務日誌</span></span><br><span class="line">docker-compose logs frontend</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止所有服務</span></span><br><span class="line">docker-compose down</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新建置並啟動</span></span><br><span class="line">docker-compose up -d --build</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="重要提醒"><a href="#重要提醒" class="headerlink" title="重要提醒"></a>重要提醒</h2><ul>
+<li>確保 Docker Desktop 已啟動</li>
+<li>前端和後端服務均連接至 <code>dynamic-network</code> 網路</li>
+<li>後端環境設定為 <code>ASPNETCORE_ENVIRONMENT=Development</code></li>
+<li><strong>端口衝突時</strong>：只需調整 docker-compose.yml 中的左側端口號</li>
+</ul>
+<h2 id="服務依賴關係"><a href="#服務依賴關係" class="headerlink" title="服務依賴關係"></a>服務依賴關係</h2><ul>
+<li>前端和後端服務透過 <code>dynamic-network</code> 進行內部通信</li>
+<li>所有服務設定為 <code>restart: unless-stopped</code> 自動重啟</li>
+</ul>
+<h2 id="端口調整實用場景"><a href="#端口調整實用場景" class="headerlink" title="端口調整實用場景"></a>端口調整實用場景</h2><h3 id="情境一：端口衝突"><a href="#情境一：端口衝突" class="headerlink" title="情境一：端口衝突"></a>情境一：端口衝突</h3><p>如果 <code>3004</code> 端口被其他應用占用：</p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">frontend:</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;3002:3000&quot;</span> <span class="comment"># 改用 3002 端口</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="情境二：多環境部署"><a href="#情境二：多環境部署" class="headerlink" title="情境二：多環境部署"></a>情境二：多環境部署</h3><p>開發環境和測試環境使用不同端口：</p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 開發環境</span></span><br><span class="line"><span class="attr">frontend:</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;3004:3000&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 測試環境可改為</span></span><br><span class="line"><span class="attr">frontend:</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;4004:3000&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="情境三：團隊協作"><a href="#情境三：團隊協作" class="headerlink" title="情境三：團隊協作"></a>情境三：團隊協作</h3><p>不同開發者使用各自偏好的端口：</p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 開發者 A 偏好</span></span><br><span class="line"><span class="attr">frontend:</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;3000:3000&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 開發者 B 偏好</span></span><br><span class="line"><span class="attr">frontend:</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;8080:3000&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="情境四：同時運行前後端"><a href="#情境四：同時運行前後端" class="headerlink" title="情境四：同時運行前後端"></a>情境四：同時運行前後端</h3><p>確保前後端端口不衝突：</p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">backend:</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;5004:8080&quot;</span> <span class="comment"># 後端服務</span></span><br><span class="line"></span><br><span class="line"><span class="attr">frontend:</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;3004:3000&quot;</span> <span class="comment"># 前端服務</span></span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<blockquote>
+<p>📄 此指南基於當前的 docker-compose.yml 配置生成<br>🔧 記住：左側端口可調，右側端口通常不變<br>如需修改端口配置，請編輯 docker-compose.yml 文件後重新啟動服務</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 docker-compose 啟動專案</title>
+    <url>/2025/06/05/useDockerCompose/</url>
+    <content><![CDATA[<h2 id="專案概述"><a href="#專案概述" class="headerlink" title="專案概述"></a>專案概述</h2><p>此專案包含：</p>
+<ul>
+<li><strong>Backend</strong>: ASP.NET Core 8.0 應用程式 (Port: 5004 → 8080)</li>
+<li><strong>Frontend</strong>: Next.js 應用程式 (Port: 3004 → 3000)</li>
+<li><strong>網路</strong>: 使用 bridge 模式的 dynamic-network</li>
+</ul>
+<h2 id="前置需求"><a href="#前置需求" class="headerlink" title="前置需求"></a>前置需求</h2><h3 id="1-安裝-Docker-Desktop"><a href="#1-安裝-Docker-Desktop" class="headerlink" title="1. 安裝 Docker Desktop"></a>1. 安裝 Docker Desktop</h3><ul>
+<li>下載並安裝 <a class="link"   href="https://docs.docker.com/desktop/install/windows-install/" >Docker Desktop for Windows<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>確保 Docker Desktop 正在運行</li>
+</ul>
+<h3 id="2-驗證-Docker-安裝"><a href="#2-驗證-Docker-安裝" class="headerlink" title="2. 驗證 Docker 安裝"></a>2. 驗證 Docker 安裝</h3><p>開啟 PowerShell 或命令提示字元，執行：</p>
+<div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line">docker <span class="literal">--version</span></span><br><span class="line">docker<span class="literal">-compose</span> <span class="literal">--version</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="專案結構"><a href="#專案結構" class="headerlink" title="專案結構"></a>專案結構</h2><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">TRC-204/</span><br><span class="line">├── docker-compose.yml          # Docker Compose 設定檔</span><br><span class="line">├── dynamic-backend/            # 後端專案資料夾</span><br><span class="line">│   ├── Dockerfile             # 後端 Dockerfile</span><br><span class="line">│   ├── src/                   # 後端原始碼</span><br><span class="line">│   └── dynamic-backend.sln    # .NET 解決方案檔</span><br><span class="line">├── dynamic-frontend/          # 前端專案資料夾</span><br><span class="line">│   ├── Dockerfile            # 前端 Dockerfile</span><br><span class="line">│   ├── src/                  # 前端原始碼</span><br><span class="line">│   ├── package.json          # Node.js 相依套件</span><br><span class="line">│   └── next.config.ts        # Next.js 設定</span><br><span class="line">└── README.md</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="啟動步驟"><a href="#啟動步驟" class="headerlink" title="啟動步驟"></a>啟動步驟</h2><h3 id="步驟-1-開啟-CMD"><a href="#步驟-1-開啟-CMD" class="headerlink" title="步驟 1: 開啟 CMD"></a>步驟 1: 開啟 CMD</h3><h3 id="步驟-2-導航到專案根目錄"><a href="#步驟-2-導航到專案根目錄" class="headerlink" title="步驟 2: 導航到專案根目錄"></a>步驟 2: 導航到專案根目錄</h3><h3 id="步驟-3-確認-docker-compose-yml-檔案存在"><a href="#步驟-3-確認-docker-compose-yml-檔案存在" class="headerlink" title="步驟 3: 確認 docker-compose.yml 檔案存在"></a>步驟 3: 確認 docker-compose.yml 檔案存在</h3><h3 id="步驟-4-建立並啟動所有容器"><a href="#步驟-4-建立並啟動所有容器" class="headerlink" title="步驟 4: 建立並啟動所有容器"></a>步驟 4: 建立並啟動所有容器</h3><div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line">docker<span class="literal">-compose</span> up <span class="literal">--build</span> <span class="literal">-d</span></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>參數說明：</strong></p>
+<ul>
+<li><code>--build</code>: 強制重新建立映像檔</li>
+<li><code>-d</code>: 在背景運行容器（detached mode）</li>
+</ul>
+<h3 id="步驟-5-驗證容器狀態"><a href="#步驟-5-驗證容器狀態" class="headerlink" title="步驟 5: 驗證容器狀態"></a>步驟 5: 驗證容器狀態</h3><div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">ps</span></span><br></pre></td></tr></table></figure></div>
+
+<p>您應該看到兩個運行中的容器：</p>
+<ul>
+<li><code>dynamic-frontend</code> (Port: 3004)</li>
+<li><code>dynamic-backend</code> (Port: 5004)</li>
+</ul>
+<h3 id="步驟-6-檢查容器日誌（可選）"><a href="#步驟-6-檢查容器日誌（可選）" class="headerlink" title="步驟 6: 檢查容器日誌（可選）"></a>步驟 6: 檢查容器日誌（可選）</h3><div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看前端日誌</span></span><br><span class="line">docker logs dynamic<span class="literal">-frontend</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看後端日誌</span></span><br><span class="line">docker logs dynamic<span class="literal">-backend</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 即時查看日誌</span></span><br><span class="line">docker logs <span class="operator">-f</span> dynamic<span class="literal">-frontend</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="存取應用程式"><a href="#存取應用程式" class="headerlink" title="存取應用程式"></a>存取應用程式</h2><h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><ul>
+<li>URL: <a class="link"   href="http://localhost:3004/" >http://localhost:3004<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>技術: Next.js (React)</li>
+</ul>
+<h3 id="後端-API"><a href="#後端-API" class="headerlink" title="後端 API"></a>後端 API</h3><ul>
+<li>URL: <a class="link"   href="http://localhost:5004/" >http://localhost:5004<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+<li>技術: ASP.NET Core 8.0</li>
+<li>API 文件: <a class="link"   href="http://localhost:5004/swagger" >http://localhost:5004/swagger<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> (如果有設定)</li>
+</ul>
+<h2 id="常用管理指令"><a href="#常用管理指令" class="headerlink" title="常用管理指令"></a>常用管理指令</h2><h3 id="停止所有容器"><a href="#停止所有容器" class="headerlink" title="停止所有容器"></a>停止所有容器</h3><div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line">docker<span class="literal">-compose</span> down</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="停止並移除所有資源"><a href="#停止並移除所有資源" class="headerlink" title="停止並移除所有資源"></a>停止並移除所有資源</h3><div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line">docker<span class="literal">-compose</span> down <span class="literal">--volumes</span> <span class="literal">--remove-orphans</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="重新啟動特定服務"><a href="#重新啟動特定服務" class="headerlink" title="重新啟動特定服務"></a>重新啟動特定服務</h3><div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 重啟前端</span></span><br><span class="line">docker<span class="literal">-compose</span> restart frontend</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重啟後端</span></span><br><span class="line">docker<span class="literal">-compose</span> restart backend</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="查看服務狀態"><a href="#查看服務狀態" class="headerlink" title="查看服務狀態"></a>查看服務狀態</h3><div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line">docker<span class="literal">-compose</span> <span class="built_in">ps</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="進入容器內部（除錯用）"><a href="#進入容器內部（除錯用）" class="headerlink" title="進入容器內部（除錯用）"></a>進入容器內部（除錯用）</h3><div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 進入前端容器</span></span><br><span class="line">docker exec <span class="literal">-it</span> dynamic<span class="literal">-frontend</span> sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 進入後端容器</span></span><br><span class="line">docker exec <span class="literal">-it</span> dynamic<span class="literal">-backend</span> bash</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="單獨啟動服務"><a href="#單獨啟動服務" class="headerlink" title="單獨啟動服務"></a>單獨啟動服務</h2><h3 id="只啟動前端-Next-js"><a href="#只啟動前端-Next-js" class="headerlink" title="只啟動前端 (Next.js)"></a>只啟動前端 (Next.js)</h3><div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 建立並啟動前端</span></span><br><span class="line">docker<span class="literal">-compose</span> up frontend <span class="literal">-d</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者重新建立前端映像檔並啟動</span></span><br><span class="line">docker<span class="literal">-compose</span> up <span class="literal">--build</span> frontend <span class="literal">-d</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="只啟動後端-ASP-NET-Core"><a href="#只啟動後端-ASP-NET-Core" class="headerlink" title="只啟動後端 (ASP.NET Core)"></a>只啟動後端 (ASP.NET Core)</h3><div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 建立並啟動後端</span></span><br><span class="line">docker<span class="literal">-compose</span> up backend <span class="literal">-d</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者重新建立後端映像檔並啟動</span></span><br><span class="line">docker<span class="literal">-compose</span> up <span class="literal">--build</span> backend <span class="literal">-d</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="停止特定服務"><a href="#停止特定服務" class="headerlink" title="停止特定服務"></a>停止特定服務</h3><div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 停止前端</span></span><br><span class="line">docker<span class="literal">-compose</span> stop frontend</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止後端</span></span><br><span class="line">docker<span class="literal">-compose</span> stop backend</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="移除特定服務"><a href="#移除特定服務" class="headerlink" title="移除特定服務"></a>移除特定服務</h3><div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 停止並移除前端容器</span></span><br><span class="line">docker<span class="literal">-compose</span> <span class="built_in">rm</span> <span class="literal">-s</span> frontend</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止並移除後端容器</span></span><br><span class="line">docker<span class="literal">-compose</span> <span class="built_in">rm</span> <span class="literal">-s</span> backend</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="開發流程"><a href="#開發流程" class="headerlink" title="開發流程"></a>開發流程</h2><h3 id="查看特定服務日誌"><a href="#查看特定服務日誌" class="headerlink" title="查看特定服務日誌"></a>查看特定服務日誌</h3><div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看所有服務日誌</span></span><br><span class="line">docker<span class="literal">-compose</span> logs <span class="operator">-f</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看前端日誌</span></span><br><span class="line">docker<span class="literal">-compose</span> logs frontend</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看後端日誌</span></span><br><span class="line">docker<span class="literal">-compose</span> logs backend</span><br><span class="line"></span><br><span class="line"><span class="comment"># 即時追蹤前端日誌</span></span><br><span class="line">docker<span class="literal">-compose</span> logs <span class="operator">-f</span> frontend</span><br><span class="line"></span><br><span class="line"><span class="comment"># 即時追蹤後端日誌</span></span><br><span class="line">docker<span class="literal">-compose</span> logs <span class="operator">-f</span> backend</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="故障排除"><a href="#故障排除" class="headerlink" title="故障排除"></a>故障排除</h2><h3 id="問題-1-容器無法啟動"><a href="#問題-1-容器無法啟動" class="headerlink" title="問題 1: 容器無法啟動"></a>問題 1: 容器無法啟動</h3><p><strong>解決方案：</strong></p>
+<div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 檢查容器日誌</span></span><br><span class="line">docker logs dynamic<span class="literal">-frontend</span></span><br><span class="line">docker logs dynamic<span class="literal">-backend</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新建立映像檔</span></span><br><span class="line">docker<span class="literal">-compose</span> build <span class="literal">--no-cache</span></span><br><span class="line">docker<span class="literal">-compose</span> up <span class="literal">-d</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="問題-2-Port-衝突"><a href="#問題-2-Port-衝突" class="headerlink" title="問題 2: Port 衝突"></a>問題 2: Port 衝突</h3><p><strong>錯誤訊息：</strong> <code>Port already in use</code><br><strong>解決方案：</strong></p>
+<div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看佔用埠號的程序</span></span><br><span class="line">netstat <span class="literal">-ano</span> | findstr :<span class="number">3004</span></span><br><span class="line">netstat <span class="literal">-ano</span> | findstr :<span class="number">5004</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止衝突的服務或修改 docker-compose.yml 中的埠號對應</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="問題-3-映像檔建立失敗"><a href="#問題-3-映像檔建立失敗" class="headerlink" title="問題 3: 映像檔建立失敗"></a>問題 3: 映像檔建立失敗</h3><p><strong>解決方案：</strong></p>
+<div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 清理 Docker 快取</span></span><br><span class="line">docker system prune <span class="literal">-a</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新建立</span></span><br><span class="line">docker<span class="literal">-compose</span> build <span class="literal">--no-cache</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="問題-4-網路連線問題"><a href="#問題-4-網路連線問題" class="headerlink" title="問題 4: 網路連線問題"></a>問題 4: 網路連線問題</h3><p><strong>解決方案：</strong></p>
+<div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 檢查網路</span></span><br><span class="line">docker network <span class="built_in">ls</span></span><br><span class="line">docker network inspect dynamic<span class="literal">-network</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新建立網路</span></span><br><span class="line">docker<span class="literal">-compose</span> down</span><br><span class="line">docker<span class="literal">-compose</span> up <span class="literal">-d</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="進階設定"><a href="#進階設定" class="headerlink" title="進階設定"></a>進階設定</h2><h3 id="修改埠號對應"><a href="#修改埠號對應" class="headerlink" title="修改埠號對應"></a>修改埠號對應</h3><p>編輯 <code>docker-compose.yml</code> 檔案中的 ports 設定：</p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">frontend:</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;3005:3000&quot;</span> <span class="comment"># 修改外部埠號為 3005</span></span><br><span class="line">  <span class="attr">backend:</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;5005:8080&quot;</span> <span class="comment"># 修改外部埠號為 5005</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="設定環境變數"><a href="#設定環境變數" class="headerlink" title="設定環境變數"></a>設定環境變數</h3><p>在 <code>docker-compose.yml</code> 中添加環境變數：</p>
+<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">backend:</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ASPNETCORE_ENVIRONMENT=Production</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DATABASE_URL=your_database_url</span></span><br></pre></td></tr></table></figure></div>
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ngrok說明</title>
+    <url>/2025/01/14/Ngrok/</url>
+    <content><![CDATA[<h2 id="ngrok">甚麼是Ngrok</h2>
+<p>主要功能是作為一個<strong>本地代理伺服器</strong>，它能將你本地運行的應用或伺服器暴露到外部網路（如互聯網），即使你的本地設備處於防火牆或 NAT（網絡地址轉換）後面。</p>
+<ul>
+    具體來說，Ngrok 的功能包括：
+    <li>1. 隧道服務（Tunneling Service）</li>
+    <p style="margin-left:30px;">Ngrok 最核心的功能是提供隧道服務，它通過一個公開的 URL，將你本地運行的服務（如 Web 伺服器、API 等）暴露給外部網路。這意味著任何人只要擁有該 URL，就能訪問你本地的服務。</p>
+    <!-- ------------------------------------------------------------------------------------- -->
+    <li>2. HTTPS 支援</li>
+    <p style="margin-left:30px;">Ngrok 自動生成帶有 HTTPS 的 URL，因此即使你的本地服務只支持 HTTP，Ngrok 也會提供一個安全加密的 HTTPS URL，確保數據在傳輸過程中得到保護。</p>
+    <!-- ------------------------------------------------------------------------------------- -->
+    <li>3. 處理 Webhook</li>
+    <p style="margin-left:30px;">當使用第三方服務時，很多會要求你的應用能夠接收來自他們的 Webhook（如支付通知或 GitHub 的事件通知）。如果你的伺服器是本地的且無法直接對外公開，Ngrok 可以生成一個公開的 URL 來接收 Webhook 並將其轉發到你的本地伺服器，這在開發和測試階段非常有用。</p>
+    <!-- ------------------------------------------------------------------------------------- -->
+    <li>4. 本地開發與測試</li>
+    <p style="margin-left:30px;">Ngrok 對於開發者來說是極其方便的工具，因為它可以模擬一個真實的互聯網環境，讓你本地運行的應用能夠接受來自外部的請求，而無需部署到外部伺服器上。</p>
+    <!-- ------------------------------------------------------------------------------------- -->
+    <li>5. 自訂子域名與自訂域名（付費功能）</li>
+    <p style="margin-left:30px;">對於 Ngrok 的付費版本，你可以設定固定的子域名或自訂域名，使得每次啟動 Ngrok 時，URL 都不會變化。這對於長期需要測試或公開訪問的服務特別有用。</p>
+</ul>
+
+<h2 id="proxy">啟動本地伺服器代理</h2>
+<p>使用 Ngrok 來暴露本地的 Flask 伺服器（通常 Flask 預設端口是 5000）：</p>
+<p>執行ngrok.exe，輸入以下指令</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">ngrok http 5000</span><br></pre></td></tr></table></figure></div>
+<h3 id="much_proxy">代理多個Url</h3>
+<p>正常來說，<strong>Ngrok一次只能配置一個url</strong>，但可以透過編輯yml檔來代理多個url</p>
+<p>首先執行ngrok.exe，輸入以下指令，查看yml檔案路徑</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">ngrok config check</span><br></pre></td></tr></table></figure></div>
+<p>你應該會看到如下架構</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">version: &quot;2&quot;</span><br><span class="line">authtoken: 2mTPgdrUufU5dquLVU9X0Dk3ESq_3wNL57wshBaYgTgooEqsg</span><br><span class="line">tunnels:</span><br></pre></td></tr></table></figure></div>
+<p>把這邊修改成</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">version: &quot;2&quot;</span><br><span class="line">authtoken: 2mTPgdrUufU5dquLVU9X0Dk3ESq_3wNL57wshBaYgTgooEqsg</span><br><span class="line">tunnels:</span><br><span class="line">  flask_app:</span><br><span class="line">    proto: http</span><br><span class="line">    addr: 5100</span><br><span class="line">  second_app:</span><br><span class="line">    proto: http</span><br><span class="line">    addr: 5200</span><br></pre></td></tr></table></figure></div>
+<p>就可以達到代理多個url了</p>
+<ul>重點解釋
+    <p class="mb-0 fw-bold">tunnels底下的結構</p>
+    <li >每個 tunnel（如 flask_app、second_app 等）是一個獨立的服務代理。</li>
+    <li>每個代理都需要指定 proto（協議）和 addr（本地的應用埠號）。</li>
+    <p class="mt-3 mb-0 fw-bold">啟用特定的代理</p>
+    <li>啟用指定的代理：</li>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">ngrok start flask_app</span><br><span class="line">ngrok start second_app</span><br></pre></td></tr></table></figure></div>
+    <li>一次啟動多個代理：</li>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">ngrok start flask_app second_app</span><br><span class="line">ngrok start --all</span><br></pre></td></tr></table></figure></div>
+</ul>
+<p style="color:gray;">我要當個免費仔xd</p>]]></content>
+      <categories>
+        <category>整理記錄</category>
+      </categories>
+      <tags>
+        <tag>Ngrok</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker commands</title>
+    <url>/2025/06/05/dockerCommand/</url>
+    <content><![CDATA[<h3 id="1-建置-Docker-映像檔"><a href="#1-建置-Docker-映像檔" class="headerlink" title="1. 建置 Docker 映像檔"></a>1. 建置 Docker 映像檔</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">docker build -t dynamic-frontend .</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="2-運行-Docker-容器"><a href="#2-運行-Docker-容器" class="headerlink" title="2. 運行 Docker 容器"></a>2. 運行 Docker 容器</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -p 3004:3000 --name dynamic-frontend-container dynamic-frontend</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="3-完整建置和運行流程"><a href="#3-完整建置和運行流程" class="headerlink" title="3. 完整建置和運行流程"></a>3. 完整建置和運行流程</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 建置映像檔</span></span><br><span class="line">docker build -t dynamic-frontend .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 運行容器（背景執行）</span></span><br><span class="line">docker run -d -p 3004:3000 --name dynamic-frontend-container dynamic-frontend</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或運行容器（前景執行，可看到 log）</span></span><br><span class="line">docker run -p 3004:3000 --name dynamic-frontend-container dynamic-frontend</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="針對專案的快速指令"><a href="#針對專案的快速指令" class="headerlink" title="針對專案的快速指令"></a>針對專案的快速指令</h2><h3 id="重新建置和運行（推薦的完整流程）"><a href="#重新建置和運行（推薦的完整流程）" class="headerlink" title="重新建置和運行（推薦的完整流程）"></a>重新建置和運行（推薦的完整流程）</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 停止並刪除舊容器</span></span><br><span class="line">docker stop dynamic-frontend-container</span><br><span class="line">docker <span class="built_in">rm</span> dynamic-frontend-container</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新建置映像檔</span></span><br><span class="line">docker build -t dynamic-frontend .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 運行新容器</span></span><br><span class="line">docker run -d -p 3004:3000 --name dynamic-frontend-container dynamic-frontend</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="查看運行狀態"><a href="#查看運行狀態" class="headerlink" title="查看運行狀態"></a>查看運行狀態</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看容器狀態</span></span><br><span class="line">docker ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看容器 log</span></span><br><span class="line">docker logs -f dynamic-frontend-container</span><br></pre></td></tr></table></figure></div>
+
+<p>這樣你就可以透過瀏覽器訪問 <code>http://localhost:3004</code> 來查看你的前端應用程式了！</p>
+<!---------------------------------------------------------------------------------------------------------------------------->
+
+<h2 id="常用-Docker-指令表格"><a href="#常用-Docker-指令表格" class="headerlink" title="常用 Docker 指令表格"></a>常用 Docker 指令表格</h2>  <table class="table table-striped table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">指令</th>
+        <th scope="col">指令說明</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-secondary">
+        <td colspan="2"><strong>基本建置與運行</strong></td>
+      </tr>
+      <tr>
+        <td><code>docker build -t &lt;映像檔名稱&gt; .</code></td>
+        <td>根據當前目錄的 Dockerfile 建置映像檔</td>
+      </tr>
+      <tr>
+        <td><code>docker build --no-cache -t &lt;映像檔名稱&gt; .</code></td>
+        <td>不使用快取重新建置映像檔</td>
+      </tr>
+      <tr>
+        <td><code>docker run -d -p &lt;主機埠&gt;:&lt;容器埠&gt; --name &lt;容器名稱&gt; &lt;映像檔名稱&gt;</code></td>
+        <td>在背景運行容器並設定埠號對應</td>
+      </tr>
+      <tr>
+        <td><code>docker run -p &lt;主機埠&gt;:&lt;容器埠&gt; &lt;映像檔名稱&gt;</code></td>
+        <td>在前景運行容器（可看到即時 log）</td>
+      </tr>
+      <tr>
+        <td><code>docker run -it &lt;映像檔名稱&gt; /bin/sh</code></td>
+        <td>互動模式運行容器並進入 shell</td>
+      </tr>
+      <tr>
+        <td><code>docker run --rm &lt;映像檔名稱&gt;</code></td>
+        <td>運行容器，停止後自動刪除</td>
+      </tr>
+      <tr class="table-secondary">
+        <td colspan="2"><strong>容器管理</strong></td>
+      </tr>
+      <tr>
+        <td><code>docker ps</code></td>
+        <td>列出正在運行的容器</td>
+      </tr>
+      <tr>
+        <td><code>docker ps -a</code></td>
+        <td>列出所有容器（包含已停止的）</td>
+      </tr>
+      <tr>
+        <td><code>docker stop &lt;容器名稱或ID&gt;</code></td>
+        <td>停止指定容器</td>
+      </tr>
+      <tr>
+        <td><code>docker start &lt;容器名稱或ID&gt;</code></td>
+        <td>啟動已停止的容器</td>
+      </tr>
+      <tr>
+        <td><code>docker restart &lt;容器名稱或ID&gt;</code></td>
+        <td>重新啟動容器</td>
+      </tr>
+      <tr>
+        <td><code>docker rm &lt;容器名稱或ID&gt;</code></td>
+        <td>刪除容器（需先停止）</td>
+      </tr>
+      <tr>
+        <td><code>docker rm -f &lt;容器名稱或ID&gt;</code></td>
+        <td>強制刪除容器（可刪除運行中的容器）</td>
+      </tr>
+      <tr class="table-secondary">
+        <td colspan="2"><strong>映像檔管理</strong></td>
+      </tr>
+      <tr>
+        <td><code>docker images</code></td>
+        <td>列出所有映像檔</td>
+      </tr>
+      <tr>
+        <td><code>docker rmi &lt;映像檔名稱或ID&gt;</code></td>
+        <td>刪除映像檔</td>
+      </tr>
+      <tr>
+        <td><code>docker rmi -f &lt;映像檔名稱或ID&gt;</code></td>
+        <td>強制刪除映像檔</td>
+      </tr>
+      <tr>
+        <td><code>docker pull &lt;映像檔名稱&gt;</code></td>
+        <td>從 Docker Hub 下載映像檔</td>
+      </tr>
+      <tr>
+        <td><code>docker push &lt;映像檔名稱&gt;</code></td>
+        <td>推送映像檔到 Docker Hub</td>
+      </tr>
+      <tr class="table-secondary">
+        <td colspan="2"><strong>容器監控與除錯</strong></td>
+      </tr>
+      <tr>
+        <td><code>docker logs &lt;容器名稱或ID&gt;</code></td>
+        <td>查看容器的 log</td>
+      </tr>
+      <tr>
+        <td><code>docker logs -f &lt;容器名稱或ID&gt;</code></td>
+        <td>即時跟蹤容器的 log</td>
+      </tr>
+      <tr>
+        <td><code>docker exec -it &lt;容器名稱或ID&gt; /bin/sh</code></td>
+        <td>進入容器的 shell 環境</td>
+      </tr>
+      <tr>
+        <td><code>docker exec &lt;容器名稱或ID&gt; &lt;指令&gt;</code></td>
+        <td>在容器中執行指定指令</td>
+      </tr>
+      <tr>
+        <td><code>docker inspect &lt;容器名稱或ID&gt;</code></td>
+        <td>查看容器詳細資訊</td>
+      </tr>
+      <tr>
+        <td><code>docker stats</code></td>
+        <td>顯示所有容器資源使用狀況</td>
+      </tr>
+      <tr class="table-secondary">
+        <td colspan="2"><strong>檔案操作</strong></td>
+      </tr>
+      <tr>
+        <td><code>docker cp &lt;本地路徑&gt; &lt;容器名稱&gt;:&lt;容器路徑&gt;</code></td>
+        <td>複製檔案從本地到容器</td>
+      </tr>
+      <tr>
+        <td><code>docker cp &lt;容器名稱&gt;:&lt;容器路徑&gt; &lt;本地路徑&gt;</code></td>
+        <td>複製檔案從容器到本地</td>
+      </tr>
+      <tr class="table-secondary">
+        <td colspan="2"><strong>Docker Compose</strong></td>
+      </tr>
+      <tr>
+        <td><code>docker-compose up</code></td>
+        <td>啟動 docker-compose 定義的服務</td>
+      </tr>
+      <tr>
+        <td><code>docker-compose up -d</code></td>
+        <td>在背景啟動 docker-compose 服務</td>
+      </tr>
+      <tr>
+        <td><code>docker-compose down</code></td>
+        <td>停止並刪除 docker-compose 服務</td>
+      </tr>
+      <tr>
+        <td><code>docker-compose logs</code></td>
+        <td>查看 docker-compose 服務的 log</td>
+      </tr>
+      <tr class="table-secondary">
+        <td colspan="2"><strong>系統清理</strong></td>
+      </tr>
+      <tr>
+        <td><code>docker system prune</code></td>
+        <td>清理未使用的容器、網路、映像檔</td>
+      </tr>
+      <tr>
+        <td><code>docker system prune -a</code></td>
+        <td>清理所有未使用的資源（包含未標記的映像檔）</td>
+      </tr>
+      <tr>
+        <td><code>docker container prune</code></td>
+        <td>清理所有停止的容器</td>
+      </tr>
+      <tr>
+        <td><code>docker image prune</code></td>
+        <td>刪除懸空的映像檔</td>
+      </tr>
+    </tbody>
+  </table>
+
+<p>這個表格包含了最常用的 Docker 指令，按照功能分類，方便查找和學習使用。</p>
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>物件導向OOP</title>
+    <url>/2025/01/11/OOP/</url>
+    <content><![CDATA[<style>
+    a{color:blue;}
+    /* 覆蓋設定navbar*/
+    /* redefine_navbar_hover_color --primary-color: #a31f34; */
+    .navbar-item a{color:black !important;}
+    .navbar-item a:hover{color: #a31f34 !important;}
+    p{letter-spacing:2px;}
+    th,td{font-size:16px;}
+</style>
+<p>把真實世界的事物抽象化為物件。以物件為主體，透過物件方法與其他物件進行互動</p>
+<p>物件導向只是一種『設計概念 (design concept)』，而不是一種程式語法</p>
+<h2 id="oop">三大特性</h2>
+<ul>
+    <li>封裝(Encapsulation)</li>
+    <li>繼承(Inheritance)</li>
+    <li>多型(Polymorphism)</li>
+    <li style="margin-left:40px;">多載(Overload)</li>
+    <li style="margin-left:40px;">覆寫(Override)</li>
+</ul>
+<h3 id="Encapsulation">封裝(Encapsulation)</h3>
+<p><strong>把物件隱藏在類別裡，通過設定存取權限，只開放公開的方法讓別人可以使用，把內部實作細節隱藏，做到保護資料的目的
+</strong></p>
+<a class="link"   href="https://yubin551.gitbook.io/java-note/object_oriented_programming/encapsulation" >詳細資料<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+
+<p>例如說"提款機"</p>
+<p>你不需要知道內部還有多少錢，也不需要知道實際運作流程，你只要插入卡片，輸入密碼即可，接著就可以透過螢幕上按鈕互動</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">class ATM&#123;</span><br><span class="line">    private int 剩餘金額;</span><br><span class="line">    private boolean 身分確認(密碼)&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;;</span><br><span class="line">    public void 提款()&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    public void 查詢餘額(密碼)&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="common">常見修飾子</h4>
+<h5>private</h5>
+<p>開放權限最低，只有同類別的成員可存取</p>
+
+<h5>public</h5>
+<p>可被所有類別存取</p>
+
+<h5>protected</h5>
+<p>可被不同package的子類別(繼承)存取</p>
+
+<h5>default</h5>
+<p>只能被同個package存取</p>
+
+<!-- ------------------------------------------------------------------------------------- -->
+<h3 id="Inheritance">繼承 (Inheritance)</h3>
+<p><strong>子類別會擁有父類別全部的成員及方法，可以再透過覆寫(override)實作專屬自己的屬性
+</strong></p>
+<a class="link"   href="https://yubin551.gitbook.io/java-note/object_oriented_programming/inheritance" >詳細資料<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<!-- ------------------------------------------------------------------------------------- -->
+<h3 id="Polymorphism">多型(Polymorphism)</h3>
+<a class="link"   href="https://yubin551.gitbook.io/java-note/object_oriented_programming/polymorphism" >Java備忘筆記<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<a class="link"   href="https://matthung0807.blogspot.com/2018/02/java-overload.html" >肉豬工程師<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<p><strong>指父類別為子類別的通用型態，再透過子類別可覆寫父類別的方法來達到多型的效果，
+利用父類別提供的方法呼叫，執行子類別自己的行為。</strong></p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">    void move() &#123;</span><br><span class="line">        System.out.println(&quot;move...move...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Dog extends Animal &#123;</span><br><span class="line">    void move() &#123;</span><br><span class="line">        System.out.println(&quot;跑...跑...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Bird extends Animal &#123;</span><br><span class="line">    void move() &#123;</span><br><span class="line">        System.out.println(&quot;飛...飛...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Fish extends Animal &#123;</span><br><span class="line">    void move() &#123;</span><br><span class="line">        System.out.println(&quot;游...游...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="overload">多載(Overload)</h4>
+<p><strong>指在一個類別(class)中，定義多個名稱相同，但參數(Parameter)不同的方法(Method)。</strong></p>
+<p>例如Java String的indexOf(...)即為多載的例子。</p>
+<p>以indexOf為名稱的方法分別為:</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">public int indexOf(int ch)</span><br><span class="line">public int indexOf(int ch, int fromIndex)</span><br><span class="line">public int indexOf(String str)</span><br><span class="line">public int indexOf(String str, int fromIndex)</span><br></pre></td></tr></table></figure></div>
+<p>所以只要方法的參數型態或數目不同，則允許多個相同名稱的方法存在。但要注意多載並不包含回傳型態不同，也就是如果方法的名稱相同，參數型態及數目相同，而只有回傳型態不同，仍有命名衝突的錯誤。例如下面範例的public String hello()即與public void hello()發生命名衝突。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">public interface HelloWorld &#123;</span><br><span class="line">    void hello(); // 與最下面的 String hello() 衝突</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">    void hello(int i);</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">    void hello(int i, int j) ;</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">    void hello(int i, String s);</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">    void hello(String s) ;</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">    String hello();  // 回傳型態不同並無多載，與最上面的 void hello() 衝突</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="override">覆寫(Override)</h4>
+<p>通常用於繼承子類別，指子類別可以覆寫父類別的方法內容，使該方法擁有不同於父類別的行為。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // Animal為Dog及Bird的通用型態</span><br><span class="line">        Animal dog = new Dog();   // 子類別Dog物件分派至Animal型別變數dog</span><br><span class="line">        Animal bird = new Bird(); // 子類別Bird物件分派至Animal型別變數bird</span><br><span class="line">        act(dog);  // run</span><br><span class="line">        act(bird); // fly</span><br><span class="line">    &#125;</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">    private static void act(Animal animal) &#123; // 因為多型，所以參數以通用的父類別傳入</span><br><span class="line">        animal.move(); // 因為多型及覆寫，所以實際執行的方法為子類別的方法內容</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">class Animal &#123;</span><br><span class="line">    public void move() &#123;</span><br><span class="line">        System.out.println(&quot;move&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">class Dog extends Animal &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void move() &#123;</span><br><span class="line">        System.out.println(&quot;run&quot;); // 覆寫父類別Animal.move()的內容</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">class Bird extends Animal &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void move() &#123;</span><br><span class="line">        System.out.println(&quot;fly&quot;); // 覆寫父類別Animal.move()的內容</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<!-- ------------------------------------------------------------------------------------- -->
+<h3 id="Abstract">抽象(Abstract)</h3>
+<a class="link"   href="https://yubin551.gitbook.io/java-note/object_oriented_programming/abstract" >詳細資料<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<p>抽象就是用來隱藏細節，可以想像成一種概念，並不存在於世界上。</p>
+<p>在『多型』的章節中，我們有一個Animal的類別，但現實生活中有這個東西嗎？ 動物只是一個概念，並沒有一種生物叫作動物。 狗、鳥、魚都是實際存在於世界上的實體，他們都是動物，現實中卻沒有一個實體叫作動物。</p>
+<p>如果聽起來卡卡的，再反覆讀幾次。 所以我們可以把動物視為一種『概念』，他是抽象的，不存在於世界上的。 而Dog、Bird、Fish都具備這個概念的特質，所以繼承Animal。</p>
+<!-- ------------------------------------------------------------------------------------- -->
+<h4 id="abstract_class">抽象類別 abstract class</h4>
+<ul>特性：
+    <li>抽象類別不能直接被實例化。</li>
+    <li>可以包含抽象方法（沒有實現的部分）和具體方法（有實現的部分）。</li>
+    <li>子類別需要實現抽象方法。</li>
+</ul>
+<p>利用abstract來修飾類別，可以使類別變成抽象類別，使用方法：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">abstract class 類別名稱&#123;</span><br><span class="line">    // 成員定義...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>抽象是一個概念，而不是一個存在的實體。同樣的，抽象類別不能被實體化。</p>
+<strong class="text-danger">可使用繼承去實作抽象類別</strong>
+<!-- ------------------------------------------------------------------------------------- -->
+<h4 id="abstract_method">抽象方法 abstract method</h4>
+<p>利用abstract，可以使方法變成抽象方法，抽象方法只能寫方法的原型，無法定義方法的本體(不能有{})。</p>
+
+<p>使用格式：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">abstract &lt;修飾子&gt; 回傳型態 方法名稱(&lt;參數...&gt;);</span><br></pre></td></tr></table></figure></div>
+<p>範例：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">abstract void eat();</span><br></pre></td></tr></table></figure></div>
+<p>錯誤範例：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">abstract void eat()&#123;    // 編譯錯誤：Abstract methods do not specify a body</span><br><span class="line">    // 不管有沒有寫東西，都編譯錯誤，抽象方法不能定義方法本體</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>注意事項
+    <li>抽象方法只能定義在抽象類別中。 (否則會編譯錯誤)</li>
+    <li>繼承抽象類別的類別必須實作(override)全部抽象方法。 (否則會編譯錯誤)</li>
+</ul>
+<p>如果子類別沒有實作抽象方法，則子類別必須定義為抽象類別。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Cat extends Animal &#123;</span><br><span class="line">    // 沒有實作 eat() 方法，會導致編譯錯誤</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>將 Cat 定義為抽象類別，則不需要實作 eat()</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">abstract class Cat extends Animal &#123;</span><br><span class="line">    // 不需要實作 eat()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<!-- ------------------------------------------------------------------------------------- -->
+<h3 id="Interface">介面(Interface)</h3>
+<a class="link"   href="https://yubin551.gitbook.io/java-note/object_oriented_programming/interface" >詳細資料<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<h5>介面，描述不同類別的共通行為。只要能夠實作介面方法，就可以實作該介面。</h5> 
+<p>介面裡面定義方法原型，不能有具體實作方法，用來規範實作介面的類別，就必須實做介面方法，確保遵守一致的設計。</p>
+
+<p>假設有"烤箱" 跟"冷氣"，他們共同屬性是"電器設備"，都需要插電才會運作
+於是可以把插座設計成介面，方法就是插電這個行為
+然後抽象類別110v、220v分別實作介面，然後"烤箱" "冷氣"再分別繼承抽象類別，去實作自己的方法內容</p>
+
+<h5>實際例子說明</h5>
+<h6>1. 問題背景</h6>
+<ul>
+    <li>烤箱和冷氣都是「電器設備」，它們有一個共同的特徵：需要插電才能運作。</li>
+    <li>我們可以抽象出這個共同的特徵，並設計成一個介面。</li>
+</ul>
+<h6>2. 設計方案</h6>
+<ul>
+    <li>介面（Interface）：定義「插電」這個行為，保證所有電器設備都需要實作這個功能。</li>
+    <li>抽象類別（Abstract Class）：因為不同的電器使用不同的電壓，我們可以將「110V」和「220V」抽象化，並實作「插電」行為，對電壓類型做區分。</li>
+    <li>具體類別（Concrete Class）：烤箱繼承 110V 抽象類別，冷氣繼承 220V 抽象類別，並在各自的具體類別中實現專屬的功能。</li>
+</ul>
+<h5>程式碼範例</h5>
+<p>定義介面</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 插座介面，定義插電的行為</span><br><span class="line">public interface Socket</span><br><span class="line">&#123;</span><br><span class="line">	void connect(string str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>抽象類別實作介面</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">public abstract class v110 : Socket</span><br><span class="line">&#123;</span><br><span class="line">	public virtual void connect(string str)</span><br><span class="line">	&#123;</span><br><span class="line">		Console.WriteLine(str + &quot;is using 110v&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">public abstract class v220 : Socket</span><br><span class="line">&#123;</span><br><span class="line">	public virtual void connect(string str)</span><br><span class="line">	&#123;</span><br><span class="line">		Console.WriteLine(str + &quot;is using 220v&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>具體類別繼承抽象類別</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">//繼承抽象類別</span><br><span class="line">public class Refrigerator : v110</span><br><span class="line">&#123;</span><br><span class="line">	private string str = &quot;&quot;;</span><br><span class="line">	public void refrigeration(string str)</span><br><span class="line">	&#123;</span><br><span class="line">		connect(str);</span><br><span class="line">		Console.WriteLine(str + &quot;開始冷藏&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class AirConditioning : v220</span><br><span class="line">&#123;</span><br><span class="line">	public void Operation(string str)</span><br><span class="line">	&#123;</span><br><span class="line">		connect(str);</span><br><span class="line">		System.Console.WriteLine(str + &quot;運作中...&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>主程式執行範例</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">internal class Program</span><br><span class="line">&#123;</span><br><span class="line">    static void Main(string[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        Refrigerator refrigerator = new Refrigerator();</span><br><span class="line">        refrigerator.refrigeration(&quot;冰箱&quot;);</span><br><span class="line">&lt;!-- ------------------------------------------------------------------------------------- --&gt;</span><br><span class="line">        AirConditioning air_conditioning = new AirConditioning();</span><br><span class="line">        air_conditioning.Operation(&quot;冷氣&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<!-- ------------------------------------------------------------------------------------- -->
+<h4 id="abstract_implements_interface">抽象類別實作介面的特性</h4>
+<ul>1. 抽象類別可以選擇實作介面的方法：
+    <li style="margin-left:40px;">抽象類別在實作介面時，可以選擇完全實作介面中的方法，也可以不實作，或者部分實作。</li>
+    <li style="margin-left:40px;">如果抽象類別中沒有實作某些介面的方法，那麼子類別必須實作這些方法。</li>
+</ul>
+<p>下面有範例: </p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">interface A&#123;</span><br><span class="line">    void a();</span><br><span class="line">    void b();</span><br><span class="line">&#125;</span><br><span class="line">abstract class AbsClass implements A&#123;</span><br><span class="line">    public void b()&#123;</span><br><span class="line">        System.out.println(&quot;hello b~&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    abstract void c();</span><br><span class="line">&#125;</span><br><span class="line">class MyClass extends AbsClass&#123;  </span><br><span class="line">    public void a() &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    // 方法b()已經在AbsClass實作，MyClass不需要再實作，當然也可以再覆寫b()</span><br><span class="line">    public void c() &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>2. 抽象類別的目的：
+    <li style="margin-left:40px;">抽象類別通常用於定義共同的基底行為（部分實作）或邏輯，並讓子類別繼承和擴展。</li>
+</ul>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">public interface Socket</span><br><span class="line">&#123;</span><br><span class="line">    void connect(string str);</span><br><span class="line">&#125;</span><br><span class="line">//抽象類別實作介面</span><br><span class="line">abstract class v110 : Socket</span><br><span class="line">&#123;</span><br><span class="line">    public void connect(string str)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(str + &quot;is 110v&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">abstract class v220 : Socket</span><br><span class="line">&#123;</span><br><span class="line">    public void connect(string str)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(str + &quot;is 220v&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Refrigerator : v110</span><br><span class="line">&#123;</span><br><span class="line">    private string str = &quot;&quot;;</span><br><span class="line">    public void refrigeration(string str)</span><br><span class="line">    &#123;</span><br><span class="line">        this.str = str;</span><br><span class="line">        connect(str);</span><br><span class="line">        System.Console.WriteLine(str + &quot;開始冷藏&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class AirConditioning : v220</span><br><span class="line">&#123;</span><br><span class="line">    private string str = &quot;&quot;;</span><br><span class="line">    public void Operation(string str)</span><br><span class="line">    &#123;</span><br><span class="line">        this.str = str;</span><br><span class="line">        connect(str);</span><br><span class="line">        System.Console.WriteLine(str + &quot;運作中...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p><strong>原則就是，非抽象類別要實作所有未定義的方法。</strong></p>
+<!-- ------------------------------------------------------------------------------------- -->
+<h4 id="interface_method">實作介面方法必須為公開(public)</h4>
+<ul>介面的設計規則：
+    <li style="margin-left:40px;">當一個類別或抽象類別實作介面時，這些方法的存取修飾符必須至少符合介面的可見性要求，也就是 <strong>public</strong></li>
+</ul>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">abstract class v110 : Socket</span><br><span class="line">&#123;</span><br><span class="line">    // 錯誤：介面成員必須是 public</span><br><span class="line">    protected void connect(string str)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(str + &quot; is 110v&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="interface_func">1. 介面的用途是什麼？</h4>
+<ul>
+    <li>提供多型（Polymorphism）的基礎。</li>
+    <li>達到鬆耦合設計，方便程式碼擴展與維護。</li>
+    <li>支援依賴反轉原則（Dependency Inversion Principle），在設計模式（如 DI）中非常重要。</li>
+</ul>
+
+<h4 id="abs_inte">2. 抽象類別與介面的差異</h4>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th style="width:100px;">特性</th>
+            <th>抽象類別</th>
+            <th>介面</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>多重繼承</td>
+            <td>不支援多重繼承，但可實現多個介面</td>
+            <td>支援多重實現</td>
+        </tr>
+         <tr>
+            <td>實現內容</td>
+            <td>可以包含抽象方法和具體方法</td>
+            <td>只能包含抽象方法（在部分語言中允許預設方法，例如 C# 的 default methods）</td>
+        </tr>
+         <tr>
+            <td>用於</td>
+            <td>提供部分實現，讓子類別共享</td>
+            <td>定義標準和規範</td>
+        </tr>
+         <tr>
+            <td>靈活性</td>
+            <td>用於類別間有明確繼承關係的情況</td>
+            <td>用於完全不相關的類別之間共享行為</td>
+        </tr>
+    </tbody>
+</table>
+<!-- ------------------------------------------------------------------------------------- -->
+<h3 id="Constructor">建構子</h3>
+<a class="link"   href="https://yubin551.gitbook.io/java-note/object_oriented_programming" >詳細資料<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
+<p>在工程師使用 new 關鍵字來創造物件時被呼叫，用來初始化物件的資料欄位。</p>
+<div class="mb-0">
+    <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/SJIiKnx.png"
+                     
+                >
+</div>
+<h5>建構子有幾個特點：</h5>
+<ol>
+    <li>必須與類別名稱同名。</li>
+    <li>不可以有回傳值。</li>
+    <li>可以帶入引數(arguments)。</li>
+    <li>主要功能為初始化物件，搭配new關鍵字被呼叫。</li>
+    <li>可以有多個建構子，但引數型態及個數不可以相同。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>整理記錄</category>
+      </categories>
+      <tags>
+        <tag>oop</tag>
+      </tags>
+  </entry>
+</search>

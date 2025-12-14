@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Ting">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://ting-s515.github.io/2025/04/18/cleanarchitecture/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Clean Architecture">
+<meta property="og:url" content="https://ting-s515.github.io/2025/04/18/cleanArchitecture/index.html">
+<meta property="og:site_name" content="Ting&#39;s Blog">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ting-s515.github.io/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-04-18T05:40:10.000Z">
+<meta property="article:modified_time" content="2025-10-25T13:26:05.212Z">
+<meta property="article:author" content="Ting">
+<meta property="article:tag" content="clean code">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ting-s515.github.io/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/null" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/null">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/null">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Clean Architecture | Ting&#39;s blog
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"ting-s515.github.io","root":"/","language":"en","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":false,"count":false,"min2read":false},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"simple","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":4,"number":false,"expand":true,"init_open":true},"copyright":{"enable":false,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"250px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":false,"site_uv":false,"post_pv":false},"single_page":true,"preloader":{"enable":false,"custom_message":null},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"I'm not anti-social; I'm just not user friendly.","subtitle":{"text":["世界就是一個巨大的草台班子"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Tags":{"path":"/tags","icon":"fa-solid fa-tags"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/1/7 12:00:00"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<head>
+	<!-- 只引入包含 Bootstrap 的工具類（Utility Classes），避免跟主題衝突 -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-utilities.min.css">
+	<style>
+		/* 整個文章容器 */
+		.article-content-container{padding:10px 20px !important;}
+		
+    	p{font-size:18px;}
+		strong{font-size:18px;}
+		/* 設定文章側邊目錄(toc) */
+		.nav-item{font-size: 15px !important;}
+		.toc-content-container{margin: 0 !important; padding: 0 !important;}
+		
+		/* 首頁調整文章區塊版面 */
+		.home-article-item{margin: 10px !important; padding: 0 !important;}
+	</style>
+</head>
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Ting&#39;s blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags"
+                                        >
+                                    <i class="fa-solid fa-tags fa-fw"></i>
+                                    TAGS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    ARCHIVES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags"
+                        >
+                            <span>
+                                TAGS
+                            </span>
+                            
+                                <i class="fa-solid fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                ARCHIVES
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/categories"
+                        >
+                            <span>Categories</span>
+                            <i class="fa-regular fa-folder fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">8</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Clean Architecture</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/avatar.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Ting</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-04-18 13:40:10</span>
+        <span class="mobile">2025-04-18 13:40:10</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-10-25 21:26:05</span>
+            <span class="mobile">2025-10-25 21:26:05</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/clean-code/">clean code</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/clean-code/">clean code</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<style>
+    img{max-height:800px; max-width:750px;}    
+    /* a{color: blue;} */
+    /* 覆蓋設定navbar*/
+    /* redefine_navbar_hover_color --primary-color: #a31f34; */
+    .navbar-item a{color:black !important;}
+    .navbar-item a:hover{color: #a31f34 !important;}
+</style>
+
+<h2 id="What-is-Clean-Architecture"><a href="#What-is-Clean-Architecture" class="headerlink" title="What is Clean Architecture"></a><a class="link"   target="_blank" rel="noopener" href="https://pjchender.dev/golang/note-go-clean-architecture/" >What is Clean Architecture<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></h2><h3 id="核心觀念"><a href="#核心觀念" class="headerlink" title="核心觀念"></a>核心觀念</h3><ul>
+<li><p><strong>獨立於框架：</strong> 將框架視為工具，而非將系統侷限於框架之中。當需要更換框架時，系統的商業邏輯不會受到影響。</p>
+</li>
+<li><p><strong>可測試：</strong> 能夠在沒有 UI、資料庫、網頁伺服器的情況下，單純測試商業邏輯。</p>
+</li>
+<li><p><strong>獨立於 UI：</strong> 可以在不改變系統架構的前提下更換 UI 介面。</p>
+</li>
+<li><p><strong>獨立於資料庫：</strong> 商業邏輯與資料庫系統分離，即使更換資料庫也不會影響核心業務運作。</p>
+</li>
+<li><p><strong>獨立於任何外部代理：</strong> 商業邏輯能夠獨立於任何第三方服務運行。</p>
+</li>
+</ul>
+<h2 id="層級結構（由外往內）"><a href="#層級結構（由外往內）" class="headerlink" title="層級結構（由外往內）"></a>層級結構（由外往內）</h2><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">🔴 第1層：Frameworks &amp; Drivers (最外層)</span><br><span class="line">└── 🟠 第2層：Interface Adapters</span><br><span class="line">    └── 🟡 第3層：Use Cases / Application Business Rules</span><br><span class="line">        └── 🔵 第4層：Entities (最內層)</span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<h3 id="第-1-層：Frameworks-Drivers（框架與驅動層）"><a href="#第-1-層：Frameworks-Drivers（框架與驅動層）" class="headerlink" title="第 1 層：Frameworks &amp; Drivers（框架與驅動層）"></a>第 1 層：Frameworks &amp; Drivers（框架與驅動層）</h3><h5 id="包含內容："><a href="#包含內容：" class="headerlink" title="包含內容："></a>包含內容：</h5><ul>
+<li><strong>資料庫系統</strong>：MySQL、PostgreSQL、MongoDB、Redis</li>
+<li><strong>Web 框架</strong>：Express.js、Fastify、Koa.js</li>
+<li><strong>外部服務</strong>：第三方 API、支付系統、郵件服務</li>
+<li><strong>配置檔案</strong>：環境變數、設定檔</li>
+</ul>
+<h5 id="特性："><a href="#特性：" class="headerlink" title="特性："></a>特性：</h5><ul>
+<li>最容易變化的層級</li>
+<li>具體的技術實現</li>
+<li>與外部世界直接接觸</li>
+</ul>
+<hr>
+<h3 id="第-2-層：Interface-Adapters（介面轉換器層）"><a href="#第-2-層：Interface-Adapters（介面轉換器層）" class="headerlink" title="第 2 層：Interface Adapters（介面轉換器層）"></a>第 2 層：Interface Adapters（介面轉換器層）</h3><h5 id="包含內容：-1"><a href="#包含內容：-1" class="headerlink" title="包含內容："></a>包含內容：</h5><ul>
+<li><strong>Controllers</strong>：處理 HTTP 請求、路由控制</li>
+<li><strong>Presenters</strong>：格式化輸出數據、回應格式</li>
+<li><strong>Gateways</strong>：資料庫存取實現、外部 API 呼叫</li>
+<li><strong>Repository 實現</strong>：具體的數據存取邏輯</li>
+<li><strong>Validators</strong>：輸入驗證、數據轉換</li>
+</ul>
+<h5 id="特性：-1"><a href="#特性：-1" class="headerlink" title="特性："></a>特性：</h5><ul>
+<li>連接內外層的橋樑</li>
+<li>數據格式轉換</li>
+<li>實現內層定義的介面</li>
+</ul>
+<hr>
+<h3 id="第-3-層：Use-Cases（應用層）"><a href="#第-3-層：Use-Cases（應用層）" class="headerlink" title="第 3 層：Use Cases（應用層）"></a>第 3 層：Use Cases（應用層）</h3><h5 id="包含內容：-2"><a href="#包含內容：-2" class="headerlink" title="包含內容："></a>包含內容：</h5><ul>
+<li><strong>Use Cases</strong>：具體的業務流程（CreateUser、ProcessOrder）</li>
+<li><strong>Application Services</strong>：應用程式特定的業務邏輯</li>
+<li><strong>介面定義</strong>：Repository、Gateway 等介面契約</li>
+<li><strong>Business Rules</strong>：應用程式層級的業務規則</li>
+</ul>
+<h5 id="特性：-2"><a href="#特性：-2" class="headerlink" title="特性："></a>特性：</h5><ul>
+<li>協調 Entities 完成業務流程</li>
+<li>定義對外部的介面需求</li>
+<li>應用程式特定的邏輯</li>
+</ul>
+<hr>
+<h3 id="第-4-層：Entities（實體層）"><a href="#第-4-層：Entities（實體層）" class="headerlink" title="第 4 層：Entities（實體層）"></a>第 4 層：Entities（實體層）</h3><h5 id="包含內容：-3"><a href="#包含內容：-3" class="headerlink" title="包含內容："></a>包含內容：</h5><ul>
+<li><strong>Domain Entities</strong>：核心業務物件（User、Product、Order）</li>
+<li><strong>Value Objects</strong>：值物件（Money、Email、Address）</li>
+<li><strong>Domain Rules</strong>：企業核心業務規則</li>
+<li><strong>Domain Events</strong>：領域事件</li>
+</ul>
+<h5 id="特性：-3"><a href="#特性：-3" class="headerlink" title="特性："></a>特性：</h5><ul>
+<li>最穩定的層級</li>
+<li>不依賴任何外部技術</li>
+<li>核心業務規則</li>
+</ul>
+<hr>
+<h2 id="實際範例對應"><a href="#實際範例對應" class="headerlink" title="實際範例對應"></a>實際範例對應</h2><h5 id="以電商系統為例："><a href="#以電商系統為例：" class="headerlink" title="以電商系統為例："></a>以電商系統為例：</h5><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">🔴 Frameworks &amp; Drivers</span><br><span class="line">├── Express.js 伺服器</span><br><span class="line">├── MySQL 資料庫</span><br><span class="line">├── Redis 快取</span><br><span class="line">└── 第三方支付 API</span><br><span class="line"></span><br><span class="line">🟠 Interface Adapters</span><br><span class="line">├── ProductController (處理商品請求)</span><br><span class="line">├── OrderPresenter (格式化訂單回應)</span><br><span class="line">├── MySQLProductRepository (商品數據存取)</span><br><span class="line">└── PaymentGateway (支付服務介面實現)</span><br><span class="line"></span><br><span class="line">🟡 Use Cases</span><br><span class="line">├── CreateProductUseCase (建立商品流程)</span><br><span class="line">├── ProcessOrderUseCase (處理訂單流程)</span><br><span class="line">├── ProductRepository (介面定義)</span><br><span class="line">└── PaymentService (介面定義)</span><br><span class="line"></span><br><span class="line">🔵 Entities</span><br><span class="line">├── Product (商品實體)</span><br><span class="line">├── Order (訂單實體)</span><br><span class="line">├── User (用戶實體)</span><br><span class="line">└── Money (金額值物件)</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="依賴流向提醒"><a href="#依賴流向提醒" class="headerlink" title="依賴流向提醒"></a>依賴流向提醒</h5><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">框架層 → 介面層 → 用例層 → 實體層</span><br><span class="line">(外)                           (內)</span><br></pre></td></tr></table></figure></div>
+
+<p>每一層都只能依賴比自己更內層的層級，這樣就能確保核心業務邏輯不會被外部技術細節污染！</p>
+<h2 id="Clean-Architecture-三大原則"><a href="#Clean-Architecture-三大原則" class="headerlink" title="Clean Architecture 三大原則"></a>Clean Architecture 三大原則</h2><h3 id="分層原則"><a href="#分層原則" class="headerlink" title="分層原則"></a>分層原則</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/y0G1qUn.jpeg"
+                      alt="分層原則"
+                ></p>
+<p><strong>▲ 上圖中，Entities 是架構中層級最高的一層，而最外圈屬於 I&#x2F;O 層，是層級最低的。</strong></p>
+<h4 id="高層與低層的定義"><a href="#高層與低層的定義" class="headerlink" title="高層與低層的定義"></a>高層與低層的定義</h4><p>《Clean Architecture》書中對於分層有明確的定義：<strong>「離 I&#x2F;O（輸入、輸出）越遠的元件層級越高，離 I&#x2F;O 越近的層級越低」。</strong></p>
+<h3 id="相依性原則-Dependency-Rule"><a href="#相依性原則-Dependency-Rule" class="headerlink" title="相依性原則 (Dependency Rule)"></a>相依性原則 (Dependency Rule)</h3><p><strong>🔴 重點：依賴方向必須由外往內、由低層往高層。</strong></p>
+<ul>
+<li>Entities 層的物件只能參考（依賴）同一層的其他物件，不可以參考其他層的物件</li>
+<li>Use Cases 層只能往內參考 Entities 層以及自己這一層的物件，不能往外參考其他層的物件</li>
+<li>分層式架構又分為嚴格跟鬆散兩種，對於嚴格的來說，相依性是不能跨層的，但對於鬆散的來說，只要相依性保持向內，那麼跨幾層並未嚴格規定，設計架構時按照需求決定。</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/AFhCClg.png"
+                      alt="相依性原則"
+                ></p>
+<p>如果 Use Cases 需要將資料儲存到資料庫，那一定要參考到最外層的資料庫物件，這該怎麼辦？</p>
+<p>Clean Architecture 透過<strong>依賴反轉 (Dependency Inversion Principle DIP)</strong>，確保相依性原則能夠被遵守。</p>
+<h4 id="滿足相依性原則的兩大好處"><a href="#滿足相依性原則的兩大好處" class="headerlink" title="滿足相依性原則的兩大好處"></a>滿足相依性原則的兩大好處</h4><ul>
+<li>因為高層的物件不再相依於框架等低層的物件，所以測試程式碼可以單獨進行測試，大幅簡化測試工作</li>
+<li>系統的核心功能位於 Entities 與 Use Cases 這兩層，要更換 I&#x2F;O 或應用程式框架變得簡單許多。例如，將 Web-Based UI 換成 Android App 時，只需要異動最外面兩層（Framework &amp; Drivers 與 Interface Adapters），就能直接銜接原本的 Use Cases 與 Entities</li>
+</ul>
+<h3 id="跨層原則"><a href="#跨層原則" class="headerlink" title="跨層原則"></a>跨層原則</h3><p><strong>🔴 重點：把 Entities 層的物件轉成 DTO 再往外傳遞。</strong></p>
+<p>請參考下圖，AddHostController 呼叫 AddHost Use Case，它再呼叫 Entity 層的 Host 物件，並獲得一個 Host 物件。接著 AddHost Use Case 直接把 Host 物件往外傳給 AddHostController。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://i.imgur.com/wsSVEEF.png"
+                      alt="跨層原則"
+                ></p>
+<p>當 Entities 層的物件離開 Use Case 層往外傳遞時（傳到 UI 或 DB 或其他外部系統），不要直接把 Entities 層的物件傳出 Use Case 層，而是<strong>要在 Use Cases 層定義往外傳遞的介面與資料結構</strong>。</p>
+<p>如果直接把 Entities 層的物件往外傳，例如直接傳給 UI，很有可能<strong>因為 UI 端的需求，導致回頭影響 Entities 層的物件</strong>。</p>
+
+		</div>
+
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/clean-code/">#clean code</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2025/06/05/dockerCommand/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">docker commands</span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/01/14/Ngrok/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Ngrok說明</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-TW',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">Clean Architecture</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-Clean-Architecture"><span class="nav-text">What is Clean Architecture</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E8%A7%80%E5%BF%B5"><span class="nav-text">核心觀念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%A4%E7%B4%9A%E7%B5%90%E6%A7%8B%EF%BC%88%E7%94%B1%E5%A4%96%E5%BE%80%E5%85%A7%EF%BC%89"><span class="nav-text">層級結構（由外往內）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC-1-%E5%B1%A4%EF%BC%9AFrameworks-Drivers%EF%BC%88%E6%A1%86%E6%9E%B6%E8%88%87%E9%A9%85%E5%8B%95%E5%B1%A4%EF%BC%89"><span class="nav-text">第 1 層：Frameworks &amp; Drivers（框架與驅動層）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC-2-%E5%B1%A4%EF%BC%9AInterface-Adapters%EF%BC%88%E4%BB%8B%E9%9D%A2%E8%BD%89%E6%8F%9B%E5%99%A8%E5%B1%A4%EF%BC%89"><span class="nav-text">第 2 層：Interface Adapters（介面轉換器層）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC-3-%E5%B1%A4%EF%BC%9AUse-Cases%EF%BC%88%E6%87%89%E7%94%A8%E5%B1%A4%EF%BC%89"><span class="nav-text">第 3 層：Use Cases（應用層）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC-4-%E5%B1%A4%EF%BC%9AEntities%EF%BC%88%E5%AF%A6%E9%AB%94%E5%B1%A4%EF%BC%89"><span class="nav-text">第 4 層：Entities（實體層）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%A6%E9%9A%9B%E7%AF%84%E4%BE%8B%E5%B0%8D%E6%87%89"><span class="nav-text">實際範例對應</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clean-Architecture-%E4%B8%89%E5%A4%A7%E5%8E%9F%E5%89%87"><span class="nav-text">Clean Architecture 三大原則</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%B1%A4%E5%8E%9F%E5%89%87"><span class="nav-text">分層原則</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E5%B1%A4%E8%88%87%E4%BD%8E%E5%B1%A4%E7%9A%84%E5%AE%9A%E7%BE%A9"><span class="nav-text">高層與低層的定義</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E4%BE%9D%E6%80%A7%E5%8E%9F%E5%89%87-Dependency-Rule"><span class="nav-text">相依性原則 (Dependency Rule)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%BB%BF%E8%B6%B3%E7%9B%B8%E4%BE%9D%E6%80%A7%E5%8E%9F%E5%89%87%E7%9A%84%E5%85%A9%E5%A4%A7%E5%A5%BD%E8%99%95"><span class="nav-text">滿足相依性原則的兩大好處</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%A8%E5%B1%A4%E5%8E%9F%E5%89%87"><span class="nav-text">跨層原則</span></a></li></ol></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2025</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Ting</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        8 posts in total
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Search..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/libs/anime.min.js"></script>
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+	
+</body>
+
+</html>
